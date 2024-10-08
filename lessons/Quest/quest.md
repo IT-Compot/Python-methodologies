@@ -41,10 +41,11 @@
 | ------------- | ------------- |
 | Обычный дом   | ![image](https://github.com/user-attachments/assets/311dbaa7-b49b-4ad2-b44d-b280c6e0e298) |
 | Замок  | ![image](https://github.com/user-attachments/assets/211462f0-8157-495d-b5db-fa7aafcc1da9) | 
-| Вилла  | ![image](https://github.com/Sindikaty/byteschool/assets/158248099/07038bb7-b178-4953-8706-c610dcb1a53e) | 
-| Торговцы | ![image](https://github.com/Sindikaty/byteschool/assets/158248099/7177fadf-39b3-40c3-b043-692a5636f88c) | 
+| Гостинница  | ![image](https://github.com/user-attachments/assets/a7efff69-a87a-4ab8-ad01-e3812e68e116) | 
+| Торговцы | ![image](https://github.com/user-attachments/assets/5f1df884-e19d-4240-a0bd-3b22cfa0f94f) | 
 | Таверна | ![image](https://github.com/user-attachments/assets/8f049791-5532-4918-b2f7-e5da8b56f0ff) | 
 
+Другие здания можете подобрать самостоятельно или дать эту работу ученикам. Если не выставить смещение (offset), то игрок будет некорректно заходить за здания и выставляться на передний план.
 Теперь можно расставить эти здания по нашей карте, как делать это зависит от фантазии ученика, пример того как можно расставить ниже (для всех зданий нужно создать узел Node2D в котором будут хранится все здания и в будущем игрок и NPC)
 ![image](https://github.com/Sindikaty/byteschool/assets/158248099/747376c6-6f29-4a61-a099-5c2c53ff2c36)
 
@@ -65,19 +66,19 @@
 
 ### Создание игрока (передвижение)
 
-Начнем создание игрока. Основным узлом будет CharBody и к нему мы присоединяем AnimSprite, Camera и CollisionPolygon
+Начнем создание игрока. Основным узлом будет `CharacterBody2D` и к нему мы присоединяем `AnimatedSprite2D`, `Camera2D` и `CollisionShape2D`
 
-![image](https://github.com/Sindikaty/byteschool/assets/158248099/0e7a0632-0e6e-42e6-80d9-52f0f03e4bdd)
+![image](https://github.com/user-attachments/assets/cd29e949-0754-40a8-bcbf-6528c3062494)
 
-У спрайта создаем 4 анимации:
-* Стоим и повернуты вверх
+У спрайта создаем 3 анимации:
 * Стоим и повернуты вниз
 * Идем вверх
 * Идем вниз
 
-Коллизию задаем у нижней части игрока
+Коллизию задаем у нижней части игрока, так как игра изометрическая.
 
-![image](https://github.com/Sindikaty/byteschool/assets/158248099/0f4a2f0a-33d7-4d67-a17f-de9fa8413c0e)
+![image](https://github.com/user-attachments/assets/80a3d2c5-65c1-4ca5-9437-7d7bd28c2363)
+
 
 Переходим к скрипту, изначально создаем 2 переменные.
 
@@ -115,6 +116,8 @@ func _physics_process(delta):
   	set_velocity(motion.normalized() * speed) # Это нужно для того чтобы скорость не складывалась если мы идем по диагонали
 	move_and_slide()
 ```
+>[!TIP]
+>Хорошей практикой считается разделение обработчика анимаций и обработчика физики в разные методы. Анимации - в process(delta), а физику - в physics_process(delta). 
 
 ## Подробнее про нормализацию вектора
 ### Нормализация вектора движения
@@ -142,7 +145,7 @@ set_velocity(motion.normalized() * speed)
 ![image](https://github.com/user-attachments/assets/48b2a8cc-e16b-429a-919d-c79966006b88)
 
 > [!TIP]
-> Можно аналогию провести с экранным джойстиком в мобильных играх или на джойстике геймпада
+> Можно провести аналогию с экранным джойстиком в мобильных играх или на джойстике геймпада
 
 
 > [!WARNING]
@@ -158,7 +161,9 @@ graph TD;
 ```
 
 
-
+<details>
+	<summary>Сделайте ускорение, если много времени</summary>
+	
 Также можно добавить небольшое ускорение, можно такое как показано ниже
 
 ```gdscript
@@ -188,8 +193,12 @@ if Input.is_action_pressed("shift"):
 	if stamina > max_stamina:
 		stamina = max_stamina
 ```
+</details>
 
-Можно сделать управление мышкой
+<details>
+<summary>Можно сделать управление мышкой</summary>
+
+ 
 ```gdscript
 var speed = 100
 var stop = Vector2()
@@ -215,18 +224,33 @@ func _input(event):
 ```gdscript
 @onready var animated_sprite = $AnimatedSprite2D
 
-#func update_animation(velocity):
-	#if velocity.x > 0:
-		#animated_sprite.flip_h = false
-		#animated_sprite.play("walk_down")
-	#elif velocity.x < 0:
-		#animated_sprite.flip_h = true
-		#animated_sprite.play("walk_down")
-	#elif velocity.y < 0:
-		#animated_sprite.play("walk_down")
-	#elif velocity.y > 0:
-		#animated_sprite.play("walk_down")
+func update_animation(velocity):
+	if velocity.x > 0:
+		animated_sprite.flip_h = false
+		animated_sprite.play("walk_down")
+	elif velocity.x < 0:
+		animated_sprite.flip_h = true
+		animated_sprite.play("walk_down")
+	elif velocity.y < 0:
+		animated_sprite.play("walk_down")
+	elif velocity.y > 0:
+		animated_sprite.play("walk_down")
  ```
+
+Игроку, который управляется через мышь необходимо добавить узел `NavigationAgent2D`
+
+Но тогда для управления игроком необходимо сделать навигационный слой для `TileMapLayer`
+
+![image](https://github.com/user-attachments/assets/cbdf122a-52ac-45e0-8bd3-26b1185c31c9)
+
+Необходимо добавить навигационный слой, добавив элемент
+
+![image](https://github.com/user-attachments/assets/38281fd9-8ac2-4e5c-b72a-94935e9f8ffe)
+
+Затем выбрать слой навигации в свойствах рисования Набора Тайлов
+
+
+</details>
 
 Теперь для корректного отображения игрока проходящего рядом со зданиями включим следующий параметр у Node2D в котором всё хранится
 
@@ -236,7 +260,11 @@ func _input(event):
 
 ![image](https://github.com/Sindikaty/byteschool/assets/158248099/e3ab41fb-24fa-47c1-a5d0-df79d7e43d69)
 
-И последним, что мы создадим на этом уроке будет самый обычный NPC не дающий заданий. Основным узлом будет CharBody и к нему мы присоединяем AnimSprite и CollisionPolygon. Анимации и коллизию делаем как у игрока полсе чего переходим к скрипту.
+
+
+## Урок 2
+
+На этом уроке мы создадим самого обычного NPC (Non-player character) не дающего заданий. Основным узлом будет `CharacterBody2D` и к нему мы присоединяем `AnimatedSprite2D` и `CollisionShape2D`. Анимации и коллизию делаем как у игрока полсе чего переходим к скрипту.
 
 ![image](https://github.com/Sindikaty/byteschool/assets/158248099/929a2d10-27ce-45d5-a9e5-fd5bdeea1175)
 
@@ -279,8 +307,6 @@ func move_anim():
 ```
 
 На уровне добавляем отдельный узел Node2D где будут хранится все NPC, после чего присоединяем туда наших ботов.
-
-## Урок 2
 
 Начнем урок с создания торговца у которого мы можем купить питомца. Для того чтобы мы покупали питомца не у пустоты, а у NPC добавим его спрайт к нашему месту продажи, например так
 
