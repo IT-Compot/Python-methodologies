@@ -7,14 +7,14 @@
 - Это последний проект в 1 году обучения, соответственно ребята показывают свой максимум приобретенных знаний
 
 ## Краткое содержание
-- Урок 1 [Карта, игрок](#урок-1)
-- Урок 2 [Боты](#урок-2)
-- Урок 3 (Квест)
-- Урок 4 (Доработка квеста)
-- Урок 5 
-- Урок 6
-- Урок 7
-- Урок 8
+- Урок 1 - [Карта, игрок](#урок-1)
+- Урок 2 - [Боты](#урок-2)
+- Урок 3 - (Квест)
+- Урок 4 - (Доработка квеста)
+- Урок 5 - 
+- Урок 6 - 
+- Урок 7 - 
+- Урок 8 - 
 
 ## Урок 1 
 
@@ -176,7 +176,7 @@ graph TD;
     B --> C[Постоянная скорость];
 ```
 
-## Второй вариант игрока (через мышь)
+
 
 <details>
 	<summary>Сделайте ускорение, если много времени</summary>
@@ -212,7 +212,11 @@ if Input.is_action_pressed("shift"):
 ```
 </details>
 
+## Второй вариант игрока (через мышь)
+
 <details>
+
+	
 <summary>Можно сделать управление мышкой</summary>
 
  
@@ -283,6 +287,8 @@ func update_animation(velocity):
 
 ## Урок 2
 
+### Обычный бот
+
 На этом уроке мы создадим самого обычного NPC (Non-player character) не дающего заданий. Основным узлом будет `CharacterBody2D` и к нему мы присоединяем `AnimatedSprite2D` и `CollisionShape2D`. Анимации и коллизию делаем как у игрока полсе чего переходим к скрипту.
 А так же создаим бота, который будет выдавать задания игроку
 
@@ -299,7 +305,7 @@ var time_to_change_dir = 2
 var timer = 0
 ```
 
-После чего в process прописываем случайное перемещение бота каждые 2 секунды и я
+После чего в process прописываем случайное перемещение бота каждые 2 секунды
 
 ```gdscript
 func _process(delta):
@@ -333,16 +339,32 @@ func move_anim():
 
 > Как видно, `Ordering`, а точнее свойство `Y Sort Enabled` - включен. Поэтому будет работать сортировка по Y у всех дочерних элементов 
 
+## Квестодатель
 
-Следующий подраздел начнем с создания торговца у которого мы можем купить питомца. Для того чтобы мы покупали питомца не у пустоты, а у NPC добавим его спрайт к нашему месту продажи, например так
+Следующий подраздел начнем с создания персонажа у которого мы можем получить квест. К NPC добавим его анимацию, например так:
 
-![image](https://github.com/Sindikaty/byteschool/assets/158248099/7c821aa8-5737-4f83-8fc5-34ca97c27841)
+![QuestGiver gif](https://github.com/user-attachments/assets/0e3b5a80-82e0-444d-a7d9-ff07f405b89a)
 
-Теперь нам нужно создать сам диалог с продавцом, для этого создадим `CanvasLayer` и в нем узел `Control`. ТАкже нам понадобятся следующие элементы:
-* Panel x2 (рамка диалогового окна и рамка текста)
-* RichTextLabel (Текст самого NPC)
-* Button x2 (ВЫбор питомца)
-* AnimatedSprite2D (Скин NPC)
+
+>[!NOTE]
+>Дети уже к концу курса должны быть на опыте, поэтому можно спокойно отдать часть с настройкой анимации на самостоятельную реализацию.
+>Коллизии лучше сделать с ними, так как их настройка будет зависеть от расположения этого персонажа
+
+Используем мы `CollisionPolygon2D` потому что через него можно задать необходимую область для персонажа, но если ребенок совсем Easy, то можно сделать `CollisionShape2D`. 
+
+Теперь нам нужно создать сам диалог с продавцом, для этого создадим `CanvasLayer` и в нем узел `Control`.
+![image](https://github.com/user-attachments/assets/52e9814e-2976-426c-b8b7-25bdf666cafd)
+
+
+>[!TIP]
+>Для удобства привыкайте переименовывать узлы, чтобы было понятнее и проще работать с ними в будущем.
+
+
+Также нам понадобятся следующие элементы:
+* `Panel` x2 (рамка диалогового окна и рамка текста)
+* `RichTextLabel` (Текст самого NPC)
+* `Button` x2 (Выбор питомца)
+* `AnimatedSprite2D` (Скин NPC)
 
 И при водим примерно к этому виду
 
@@ -371,90 +393,7 @@ func _on_torgovec_body_exited(body):
 			$CanvasLayer/torgovec_dialog.visible = false
 ```
 
-Теперь неужно добавить самих питомцев которых будет продавать NPC. Для каждого питомца создаем отдельные сцены состаящие из следующих узлов
 
-![image](https://github.com/Sindikaty/byteschool/assets/158248099/2050358a-7455-48a0-b58f-5dd04af9afc2)
-
-Для создания передвижения питомца нам понадобится 2 переменные 
-
-```gdscript
-@export var speed = 100
-var player_position
-```
-
-В методе `_ready` мы определяем позицию игрока, после чего в `_physics_process` мы также определяем позицию игрока и создаем локальную переменную которая определяет расстояние от питомца до игрока, после чего создаем проверку на это расстояние, если оно меньше 50 питомец двигается к нам. 
-
-```gdscript
-func _ready():
-	player_position = $"../Player".position
-
-func _physics_process(delta):
-	player_position = $"../Player".position
-	var distance = position.distance_to(player_position)
-	 
-	if distance > 50:
-		var direction = (player_position - position).normalized()
-		set_velocity(direction * speed)
-		move_and_slide()
-
-		if direction.x > 0 and speed > 0:
-			$AnimatedSprite2D.play("walk")
-			$AnimatedSprite2D.flip_h = false
-		elif direction.x < 0 and speed > 0:
-			$AnimatedSprite2D.play("walk")
-			$AnimatedSprite2D.flip_h = true
-	else:
-		$AnimatedSprite2D.play("idle")
-```
-
-Все что нам осталось это добавить спавн питомцев при нажатии на кнопку. Для этого в основном уровне создаем 2 переменные в которые мы предварительно загружаем сцены.
-
-```gdscript
-var pet_wolf = preload("res://pet.tscn")
-var pet_bear = preload("res://bear.tscn")
-```
-
-Присоединяем 2 сигнала на кнопки и создаем в них клон наших питомцев.
-
-```gdscript
-func _on_option_1_pressed():
-		var pet = pet_wolf.instantiate()
-		pet.position = $".".position
-		get_parent().add_child(pet)
-		$"../../CanvasLayer/torgovec_dialog/RichTextLabel2".text = "Отлинчый выбор! Он в цирке не выступает"
-
-func _on_option_2_pressed():
-		var pet = pet_bear.instantiate()
-		pet.position = $".".position
-		get_parent().add_child(pet)
-		$"../../CanvasLayer/torgovec_dialog/RichTextLabel2".text = "Ну слушай... Зато к тебе и близко никто не подойдет"
-```
-
-Можно также добавить проверку на количество питомцев, для этого добавим переменную и проверку
-
-```gdscript
-pet_count = 0
-
-func _on_option_1_pressed():
-	if pet_count < 1:
-		var pet = pet_wolf.instantiate()
-		pet_count += 1
-		pet.position = $".".position
-		get_parent().add_child(pet)
-		$"../../CanvasLayer/torgovec_dialog/RichTextLabel2".text = "Отлинчый выбор! Он в цирке не выступает"
-	else:
-		$"../../CanvasLayer/torgovec_dialog/RichTextLabel2".text = "У тебя уже есть питомец"
-		
-func _on_option_2_pressed():
-	if pet_count < 1:
-		var pet = pet_bear.instantiate()
-		pet_count += 1
-		pet.position = $".".position
-		get_parent().add_child(pet)
-		$"../../CanvasLayer/torgovec_dialog/RichTextLabel2".text = "Ну слушай... Зато к тебе и близко никто не подойдет"
-	else:
-		$"../../CanvasLayer/torgovec_dialog/RichTextLabel2".text = "У тебя уже есть питомец"
-```
 
 Можно добавить проверку на диалог, чтобы маршрут не строился в случае диалога. Для этого создаем глобальный скрипт и добавляем изменение в зависимости от ситуации.
 
@@ -486,19 +425,19 @@ func _on_wolf_2_pressed():
 ```
 
 Следующего NPC которого мы сделаем будет стражник который рассказывает что где находится. Нам понадобятся следующие узлы:
-* Area2D
-* AnimatedSprite2D
-* CollisionShape2D
-* Label
+* `Area2D`
+* `AnimatedSprite2D`
+* `CollisionShape2D`
+* `Label`
 
 MPC будет выглядить примерно так
 
 ![image](https://github.com/Sindikaty/byteschool/assets/158248099/c207a3d5-15f4-4dde-8834-0ef7d2b5b3c3)
 
 Теперь нам нужно сздать сам диалог со стражником. Делать это мы будем в ранее созданном `CanvasLayer`. Основным узлом бьудет `Control` и к нему присоединяем следующие узлы:
-* Panel х2
-* RichTextLabel
-* Button x4
+* `Panel` х2
+* `RichTextLabel`
+* `Button` x4
 
 Расставляем все и создаем скрипт у Control после чего присоединяем сигналы к кнопкам.
 
@@ -827,3 +766,92 @@ func _on_body_entered(body):
 ![image](https://github.com/Sindikaty/byteschool/assets/158248099/4355c992-c96b-40f7-b88b-e3325d12ed9e)
 
 а
+
+## Допы
+
+### NPC-питомцы
+
+Теперь неужно добавить самих питомцев которых будет продавать NPC. Для каждого питомца создаем отдельные сцены состаящие из следующих узлов
+
+![image](https://github.com/Sindikaty/byteschool/assets/158248099/2050358a-7455-48a0-b58f-5dd04af9afc2)
+
+Для создания передвижения питомца нам понадобится 2 переменные 
+
+```gdscript
+@export var speed = 100
+var player_position
+```
+
+В методе `_ready` мы определяем позицию игрока, после чего в `_physics_process` мы также определяем позицию игрока и создаем локальную переменную которая определяет расстояние от питомца до игрока, после чего создаем проверку на это расстояние, если оно меньше 50 питомец двигается к нам. 
+
+```gdscript
+func _ready():
+	player_position = $"../Player".position
+
+func _physics_process(delta):
+	player_position = $"../Player".position
+	var distance = position.distance_to(player_position)
+	 
+	if distance > 50:
+		var direction = (player_position - position).normalized()
+		set_velocity(direction * speed)
+		move_and_slide()
+
+		if direction.x > 0 and speed > 0:
+			$AnimatedSprite2D.play("walk")
+			$AnimatedSprite2D.flip_h = false
+		elif direction.x < 0 and speed > 0:
+			$AnimatedSprite2D.play("walk")
+			$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.play("idle")
+```
+
+Все что нам осталось это добавить спавн питомцев при нажатии на кнопку. Для этого в основном уровне создаем 2 переменные в которые мы предварительно загружаем сцены.
+
+```gdscript
+var pet_wolf = preload("res://pet.tscn")
+var pet_bear = preload("res://bear.tscn")
+```
+
+Присоединяем 2 сигнала на кнопки и создаем в них клон наших питомцев.
+
+```gdscript
+func _on_option_1_pressed():
+		var pet = pet_wolf.instantiate()
+		pet.position = $".".position
+		get_parent().add_child(pet)
+		$"../../CanvasLayer/torgovec_dialog/RichTextLabel2".text = "Отлинчый выбор! Он в цирке не выступает"
+
+func _on_option_2_pressed():
+		var pet = pet_bear.instantiate()
+		pet.position = $".".position
+		get_parent().add_child(pet)
+		$"../../CanvasLayer/torgovec_dialog/RichTextLabel2".text = "Ну слушай... Зато к тебе и близко никто не подойдет"
+```
+
+Можно также добавить проверку на количество питомцев, для этого добавим переменную и проверку
+
+```gdscript
+pet_count = 0
+
+func _on_option_1_pressed():
+	if pet_count < 1:
+		var pet = pet_wolf.instantiate()
+		pet_count += 1
+		pet.position = $".".position
+		get_parent().add_child(pet)
+		$"../../CanvasLayer/torgovec_dialog/RichTextLabel2".text = "Отлинчый выбор! Он в цирке не выступает"
+	else:
+		$"../../CanvasLayer/torgovec_dialog/RichTextLabel2".text = "У тебя уже есть питомец"
+		
+func _on_option_2_pressed():
+	if pet_count < 1:
+		var pet = pet_bear.instantiate()
+		pet_count += 1
+		pet.position = $".".position
+		get_parent().add_child(pet)
+		$"../../CanvasLayer/torgovec_dialog/RichTextLabel2".text = "Ну слушай... Зато к тебе и близко никто не подойдет"
+	else:
+		$"../../CanvasLayer/torgovec_dialog/RichTextLabel2".text = "У тебя уже есть питомец"
+```
