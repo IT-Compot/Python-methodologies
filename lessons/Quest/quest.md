@@ -366,9 +366,16 @@ func move_anim():
 * `Button` x2 (Выбор питомца)
 * `AnimatedSprite2D` (Скин NPC)
 
-И при водим примерно к этому виду
+И приходим примерно к этому:
 
-![image](https://github.com/Sindikaty/byteschool/assets/158248099/dfdd6df8-3acb-45c2-ba87-2030831d5ad6)
+![image](https://github.com/user-attachments/assets/b9fecb72-ae51-4c65-9983-7075cda0e6fc)
+
+>[!NOTE]
+>Конечно вы можете сделать свой вариант. И дети тоже могут. Проявите свою творческую сторону!
+
+![image](https://github.com/user-attachments/assets/9dd459dc-46e4-46aa-a5bc-bc11aec4a866)
+
+>Такой вариант может быть даже лучше, сэкономит место, но вы в любом случае можете выбрать сами.
 
 Добавим появление этого диалога с торговцем. Для этого создадим зону с коллизией
 
