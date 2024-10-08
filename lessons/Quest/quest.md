@@ -352,6 +352,12 @@ func move_anim():
 
 Используем мы `CollisionPolygon2D` потому что через него можно задать необходимую область для персонажа, но если ребенок совсем Easy, то можно сделать `CollisionShape2D`. 
 
+Как работать с `CollisionPolygon2D`:
+
+![MakingCollisions](https://github.com/user-attachments/assets/b51c6994-d4ee-496f-8559-24d0f95d6bd2)
+
+
+
 Теперь нам нужно создать сам диалог с продавцом, для этого создадим `CanvasLayer` и в нем узел `Control`.
 ![image](https://github.com/user-attachments/assets/52e9814e-2976-426c-b8b7-25bdf666cafd)
 
@@ -361,10 +367,10 @@ func move_anim():
 
 
 Также нам понадобятся следующие элементы:
-* `Panel` x2 (рамка диалогового окна и рамка текста)
-* `RichTextLabel` (Текст самого NPC)
-* `Button` x2 (Выбор питомца)
-* `AnimatedSprite2D` (Скин NPC)
+* `Panel` 2x (рамка диалогового окна и рамка текста)
+* `Label` 2x (Имя персонажа и текст самого NPC)
+* `Button` 2x (Выбор ответа)
+* `AnimatedSprite2D` (Персонаж)
 
 И приходим примерно к этому:
 
@@ -377,28 +383,39 @@ func move_anim():
 
 >Такой вариант может быть даже лучше, сэкономит место, но вы в любом случае можете выбрать сами.
 
-Добавим появление этого диалога с торговцем. Для этого создадим зону с коллизией
+![image](https://github.com/user-attachments/assets/ba16a092-dcf6-4ecd-90a4-0662664cd4f9)
+
 
 ![image](https://github.com/Sindikaty/byteschool/assets/158248099/13fbe0d8-4b58-4a79-8d17-bc9ee9f960a9)
 
-Присоединяем сигналы на вход и выход из зоны торговца и в них прописываем включение/выключение диалога соответственно
+Прикрепляем скрипт и присоединяем сигналы на вход и выход из зоны персонажа и в них прописываем включение/выключение диалога соответственно
 
 ```gdscript
-var in_area = false
+var in_area = false # эта переменная будет проверять в области ли игрок
 
-func _on_torgovec_body_entered(body):
-	if body.name == "Player":
-		in_area = true
-		if in_area == true:
-			$CanvasLayer/torgovec_dialog.visible = true
+func _process(delta):
+	if in_area == true: # здесь проверяется в области ли игрок
+		%QuestGiverWindow2.visible = true # обращение по уникальному имени узла
+	else:
+		%QuestGiverWindow2.visible = false
 
 
-func _on_torgovec_body_exited(body):
-	if body.name == "Player":
-		in_area = false
-		if in_area == false:
-			$CanvasLayer/torgovec_dialog.visible = false
+func _on_body_entered(body):
+	if body.name == "Player": # проверка на имя узла, проверяйте имя узла игрока! Не сцены!
+		in_area = true # если выражение выше является истинным, то тогда включаем эту переменную
+		
+
+
+func _on_body_exited(body):
+	if body.name == "Player": # всё та же проверка
+		in_area = false # здесь всё наоборот
 ```
+
+>[!WARNING]
+>Ты должно быть заметил, что в скрипте используется не <kbd>$</kbd> при обращении к узлу, а <kbd>%</kbd>. Сделано это для доступа к узлу по уникальному имени, т.е. можно обращаться к узлу, независимо от пути к этому узлу.
+
+Делается это следующим образом:
+![UniqueName](https://github.com/user-attachments/assets/29c851a7-7850-40cb-ba49-2ef9b44464f3)
 
 
 
