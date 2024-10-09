@@ -12,39 +12,55 @@
 Для реализации нам понадобятится 4 переменные
 
 ```gdscript
-var move_dir = Vector2.ZERO
-var move_speed = 50
-var time_to_change_dir = 2
-var timer = 0
+var move_dir = Vector2.ZERO # переменная в которой храним направление бота
+var move_speed = 50 # его скорость
+var time_to_change_dir = 2 # время для смены направления движения (можете сделать его рандомным)
+var timer = 0 # таймер, который будет доходить до значения time_to_change_dir, а затем сбрасываться
 ```
 
 После чего в process прописываем случайное перемещение бота каждые 2 секунды
 
 ```gdscript
-func _process(delta):
+func _physics_process(delta): # метод, который вы должны использовать для всего, что предполагает использование физического движка
 	timer += delta;
 	if timer >= time_to_change_dir:
 		timer = 0
 		move_dir = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
-
-	if move_dir == Vector2(0,0):
-		$AnimatedSprite2D.play("idle")
-	else:
-		move_anim()
 	
 	set_velocity(move_dir * move_speed)
 	move_and_slide()
 
-func move_anim():
+func _process(delta): # а этот метод можно использовать для обработки анимаций и прочих операций, которые не обрабатывают физику
+	if move_dir == Vector2(0,0): # если бот стоит на месте, то его анимация будет следующая:
+		move_anim(move_dir) # имя метода ниже и в него записан аргумент, который передается в параметр метода move_anim()
+	else: # иначе:
+		move_anim(move_dir) # имя метода ниже и в него записан аргумент, который передается в параметр метода move_anim()
+	
+	
+
+func move_anim(move_dir: Vector2): # метод внутри которого объявляется параметр с типом Vector2, который метод хочет получить и в него мы передаем значение направления бота
+	if move_dir == Vector2.ZERO: # далее мы исходя из данных move_dir меняем анимацию бота
+		$AnimatedSprite2D.play("idle")
 	if move_dir.x > 0:
 		$AnimatedSprite2D.flip_h = false
 	else:
 		$AnimatedSprite2D.flip_h = true
 		
 	if move_dir.y > 0:
-		$AnimatedSprite2D.play("walk_dwn")
+		$AnimatedSprite2D.play("walk")
 	else:
 		$AnimatedSprite2D.play("walk_up")
+```
+
+>[!IMPORTANT]
+>Параметры — это переменные, задаваемые при создании функции, которые служат для хранения данных, используемых внутри этой функции. Аргументы — это конкретные значения, передаваемые функции во время её вызова. Проще говоря, если рассматривать функцию как рецепт, то параметры представляют собой список ингредиентов, а аргументы — это те ингредиенты, которые вы добавляете в процессе приготовления. 
+
+```gdscript
+func pie(apple: int):  # Здесь 'apple' — это параметр функции
+    print("У вас есть ", apple, " яблок(а) для пирога.")
+
+# Вызов функции с аргументом
+pie(5)  # Здесь '5' — это аргумент, передаваемый функции
 ```
 
 На уровне добавляем отдельный узел Node2D где будут хранится все NPC, после чего присоединяем туда наших ботов.
@@ -59,7 +75,7 @@ func move_anim():
 ![QuestGiver gif](https://github.com/user-attachments/assets/0e3b5a80-82e0-444d-a7d9-ff07f405b89a)
 
 
->[!NOTE]
+>[!TIP]
 >Дети уже к концу курса должны быть на опыте, поэтому можно спокойно отдать часть с настройкой анимации на самостоятельную реализацию.
 >Коллизии лучше сделать с ними, так как их настройка будет зависеть от расположения этого персонажа
 
