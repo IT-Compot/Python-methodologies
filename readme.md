@@ -1,6 +1,6 @@
 # Резюме курсов по Python
 
-## Вводный модуль
+## [Вводный модуль](https://github.com/IT-Compot/Python-GameDev/blob/main/lessons/Introduction%20module/README.md) 
 
 ## 1-ая ступень
 
