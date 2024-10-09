@@ -1,6 +1,7 @@
 # Резюме курсов по Python
 
 ## [Вводный модуль](https://github.com/IT-Compot/Python-GameDev/blob/main/lessons/Introduction%20module/README.md) 
+Первые 2 урока курса Python GamDev. Основная цель которых - заинтересовать учеников.
 
 ## 1-ая ступень
 
