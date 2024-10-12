@@ -345,5 +345,5 @@ func spawn_item(): # или такой метод
 
 ![image](https://github.com/user-attachments/assets/1885b066-e4b3-419f-9d79-2c68deaf019c)
 
-
+Остается только проверить подбор предмета. 
 
