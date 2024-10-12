@@ -161,7 +161,9 @@ func _on_body_exited(body):
 
 Хранить квесты, для относительной простоты, мы будем внутри данного интерфейса.
 
-Полный скрипт для ознакомления представлен ниже:
+Полный скрипт для ознакомления представлен ниже.
+
+ Начать можете с чего-то подобного:
 
 ```gdscript
 var quest = [] # здесь мы будем хранить квесты
@@ -181,6 +183,52 @@ func _on_option_1_pressed(): # прикрепляете сигнал от кно
 func _on_option_2_pressed(): # если отказываемся, то просто выключаем область для нас
 	%QuestGiver.in_area = false
 ```
+
+А прийти к этому:
+
+```gdscript
+extends Control
+
+var quest = []
+signal quest_accepted
+
+func _process(delta): # вы прописываете здесь все необходимые ветвления и условия для вашего квеста. Более-менее универсальный вариант представлен здесь
+	if quest.has("Собери хлам"): # проверяете есть ли в массиве такой элемент
+		$PanelOutside/PanelInside/Label.text = "Отлично! Спасибо тебе большое! # в случае успеха проверки условия будет выполняться данный код
+		Ты бы знал, как сильно выручил меня!" # текст можно переносить на разные строки
+	if quest.has("Отнеси обратно склянку"):
+		$PanelOutside/PanelInside/Label.text = "Спасибо огромное! 
+		Теперь я не погибну от рук берсерка."
+		$Option_1.text = "Вот, держи свой эстус"
+		$Option_2.text = "Хотя... Он мой"
+	if quest.has("Задание от Кассандры: Выполнено"):
+		$PanelOutside/PanelInside/Label.text = "Теперь меня никто
+		не остановит!"
+	if quest.has("Задание от Кассандры: Вы плохой человек"):
+		$PanelOutside/PanelInside/Label.text = "Уходи. Глаза бы мои
+		тебя не видели. Так ведь нельзя."
+		$Option_1.text = "Понял. Ухожу"
+		$Option_2.text = "Бывает такое"
+
+
+func _on_option_1_pressed():
+	if quest.is_empty() and !quest.has("Собери хлам"):
+		quest.append("Собери хлам")
+		emit_signal("quest_accepted")
+	if quest.has("Отнеси обратно склянку"):
+		quest.clear()
+		quest.append("Задание от Кассандры: Выполнено")
+
+
+func _on_option_2_pressed():
+	if quest.has("Отнеси обратно склянку"):
+		quest.clear()
+		quest.append("Задание от Кассандры: Вы плохой человек")
+	%QuestGiver.in_area = false
+
+```
+>[!Tip]
+>Внимательно почитай код, чтобы понять что и зачем нужно. На самом деле всё не так сложно
 
 Начнем с простого:
 ```gdscript
@@ -237,6 +285,24 @@ func _process(delta):
 		Ты бы знал, как сильно выручил меня!"
 ```
 
+### Создание предмета для квеста
+
+![image](https://github.com/user-attachments/assets/764a76e6-dec3-498c-a976-8036368d147f)
+
+> Это может быть любой другой предмет. Зависит от истории ученика.
+
+Из чего состоит подбираемый предмет:
+![image](https://github.com/user-attachments/assets/fe740b3e-772c-4234-83ae-1f79e4b8575d)
+
+Скрипт достаточно простой:
+
+```gdscript
+func _on_body_entered(body): # сигнал, который исходит от самого узла
+	if body.name == "Player": # проверка имени игрока
+		body.item_collected() # вызов метода у тела
+		queue_free() # удаление предмета
+```
+Сигнал прикрепляете `body_entered` к самому скрипту предмета
 
 ### Создание узла для предметов
 
@@ -246,76 +312,38 @@ func _process(delta):
 
 И сразу крепите к нему скрипт
 
-
-Следующего NPC которого мы сделаем будет стражник который рассказывает что где находится. Нам понадобятся следующие узлы:
-* `Area2D`
-* `AnimatedSprite2D`
-* `CollisionShape2D`
-* `Label`
-
-MPC будет выглядить примерно так
-
-![image](https://github.com/Sindikaty/byteschool/assets/158248099/c207a3d5-15f4-4dde-8834-0ef7d2b5b3c3)
-
-Теперь нам нужно сздать сам диалог со стражником. Делать это мы будем в ранее созданном `CanvasLayer`. Основным узлом бьудет `Control` и к нему присоединяем следующие узлы:
-* `Panel` х2
-* `RichTextLabel`
-* `Button` x4
-
-Расставляем все и создаем скрипт у Control после чего присоединяем сигналы к кнопкам.
-
-![image](https://github.com/Sindikaty/byteschool/assets/158248099/d27b2410-92b7-4c29-bbec-002ef9d1d688)
-
 ```gdscript
-var variation_fact = 0
+# как обычно - сперва полный скрипт, чтобы было понимание того, что мы делаем
+# а дальше по порядку
+
+@export var glass_scene : PackedScene # сюда мы положим сцену
+@export var min_glass = 1 # эти переменные опциональны, на случай, если вы будете с хардами делать генерацию нескольких предметов
+@export var max_glass = 5 # 
 
 
-func _on_answer1_pressed():
-	$RichTextLabel.text = "Просто иди дальше по дороге. Не ошибешься. Они полказны угрохали на этот замок."
+func _on_quest_giver_window_quest_accepted(): # сигнал, который приходит от интерфейса квеста
+	spawn_item() # вызов метода, который будет спавнить предметы
 
-
-func _on_answer2_pressed():
-	$RichTextLabel.text = "Парень, она слева от тебя."
-
-
-func _on_answer3_pressed():
-	randomize()
-	variation_fact = int(randf_range(0, 10))
-	if variation_fact == 0:
-		$RichTextLabel.text = "Что-то интересное? Я тебе что, библиотекарь что ли?"
-	if variation_fact == 1:
-		$RichTextLabel.text = "Говорят в городе завелся некий Давахин... Ничего не слышал об этом?"
-	if variation_fact == 2:
-		$RichTextLabel.text = "Хочешь что-то интересное - дуй в таверну. Там наслушаешься"
-	if variation_fact == 3:
-		$RichTextLabel.text = "Ты никому не говори, но я на самом деле хотел быть в разведотряде."
-	if variation_fact == 4:
-		$RichTextLabel.text = "А что если я тоже избранный? Я вон, в детстве в чан с облепиховым морсом упал."
-	if variation_fact == 5:
-		$RichTextLabel.text = "Если ты слышал местные слухи о слуге, который убил своего хозяина и стал стражником, то это не я"
-
-func _on_answer4_pressed():
-	$RichTextLabel.text = "Ага. Всего хорошего."
+# вариант 1
+func spawn_item(): # вы можете создать такой метод
+	var glass = glass_scene.instantiate() # инстанцируем сцену предмета
+	glass.position = Vector2(randf_range(100, 100),randf_range(100, 100)) # задаем случайную позицию. Можно задать спавн в случайной точке или просто создать спавн в каком-то конкретном месте
+	add_child(glass)
 ```
 
-Теперь нужно добавить собственно появление этого диалога. Для этого создаем скрипт у Area2D нашего NPC
-
+Можете попробовать вариант с конкретной точкой (так будет меньше багов)
 ```gdscript
-func _on_guard_body_entered(body):
-	if body.name == "Player":
-		$Label.visible = true
-		$Label.text = "Чего тебе, приключенец?"
-		$"../../CanvasLayer/dialog".visible = true
-		
-	if body.is_in_group("NPC"):
-		$Label.visible = true
-		$Label.text = "Не мешайте службе, житель"
 
-func _on_guard_body_exited(body):
-	if body.name == "Player":
-		$Label.visible = false
-		$"../../CanvasLayer/dialog".visible = false
-		
-	if body.is_in_group("NPC"):
-		$Label.visible = false
+# вариант 2
+func spawn_item(): # или такой метод
+	var glass = glass_scene.instantiate() # инстанцируем сцену предмета
+	glass.position = $GlassSpawnPoint.position # можете задать спавн в конкретной точке
+	add_child(glass)
 ```
+
+Задаете конкретную позицию узлу Marker2D и переименовываете его.
+
+![image](https://github.com/user-attachments/assets/1885b066-e4b3-419f-9d79-2c68deaf019c)
+
+
+
