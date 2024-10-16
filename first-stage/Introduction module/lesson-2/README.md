@@ -166,3 +166,20 @@ if position.x <= -50
 
 > [!NOTE]
 > Метод [randomize()](https://docs.godotengine.org/en/stable/classes/class_randomnumbergenerator.html) - предоставляет методы генерации псевдослучайных чисел. Если в 2-х словах позволяет вам генерировать псевдослучайные числа в методах создания случайных чисел имеющихся в Godot. Без него числа в методе `rand_range(from, to)` и ему подобные будут более предсказуемы.
+
+Итоговый код противника будет выглядеть следующим образом:
+
+```GDScript
+var velocity = Vector2()
+
+
+func _physics_process(delta):
+  velocity.x = -500
+
+  if position.x <= -50
+  position.x = 1060
+  randomize()
+  position.y = rand_range(0, 600)
+
+  move_and_slide(velocity)
+```
