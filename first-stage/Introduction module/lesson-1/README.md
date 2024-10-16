@@ -268,7 +268,7 @@ func _physics_process(delta):
 	velocity.y = velocity.y + 9.8 # сокращённый вариант даём только хардам
 
 	if Input.is_action_just_pressed("fly"):
-		velocity = -400
+		velocity.y = -400
 
 	move_and_slide(velocity)
 ```
