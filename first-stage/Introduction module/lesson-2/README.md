@@ -177,9 +177,9 @@ func _physics_process(delta):
   velocity.x = -500
 
   if position.x <= -50
-  position.x = 1060
-  randomize()
-  position.y = rand_range(0, 600)
+    position.x = 1060
+    randomize()
+    position.y = rand_range(0, 600)
 
   move_and_slide(velocity)
 ```
