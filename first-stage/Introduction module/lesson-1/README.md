@@ -243,6 +243,8 @@ func _physics_process(delta):
 
 Спрашиваем как управлять персонажем? После вариантов ответов идём задавать кнопки.
 
+![key](https://github.com/user-attachments/assets/2907a9dc-6701-4435-9183-adcaf5c3b69d)
+
 Открываем слева сверху `проект`. В выпадающем меню выбираем `настройки проекта`.
 ![alt text](images/image-15.png)
 
