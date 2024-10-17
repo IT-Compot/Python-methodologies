@@ -283,7 +283,7 @@ func _physics_process(delta):
 
 - Задать каждому ученику по одному вопросу по коду
 - Спросить каждого, что было самым интересным
-- Показать слайды из [презентации](https://disk.yandex.ru/i/M1WX0__Se0v6Hg)
+- Показать слайды из [презентации](https://disk.yandex.ru/edit/disk/disk%2F%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D0%B8%D0%BA%D0%B0%2F%D0%9F%D0%B0%D0%B9%D1%82%D0%BE%D0%BD%2F%D0%92%D0%B2%D0%BE%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C%2F%D0%92%D0%B2%D0%BE%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C%20%D0%BA%D0%BE%D0%BD%D0%B5%D1%86%201-%D0%B3%D0%BE%20%D1%83%D1%80%D0%BE%D0%BA%D0%B0.pptx?sk=y0558e7604686d2021b798a6c5c5b2395)
 - Отправить анкету обратной связи
 
 ## Допы:
