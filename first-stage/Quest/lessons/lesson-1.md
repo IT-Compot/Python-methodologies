@@ -31,6 +31,17 @@
 
 ![AnimationsGif](https://github.com/user-attachments/assets/69ef6282-24bb-4bdc-b0ca-a2a40dfea59d)
 
+Чтобы добавить кадр из спрайт-лист (это картинка с кучей кадров), нужно нажать на следующую кнопку:
+
+![image](https://github.com/user-attachments/assets/55d6db3d-7495-47d0-ab71-55b018f4780a)
+
+Находите нужный спрайт-лист и настраиваете количество линий и выбираете необходимые кадры:
+
+![image](https://github.com/user-attachments/assets/ff4f2ce0-a57b-406b-a62c-bbf681c22c61)
+
+>[!Note]
+>Сколько и какие кадры вставлять в анимацию разберетесь по ходу работы или можно посмотреть на гифке выше
+
 Так же необходимо выставить смещение (`offset`). 
 
 ![image](https://github.com/user-attachments/assets/c3be4147-6b3f-40e9-8fc7-14230ef8e00f)
