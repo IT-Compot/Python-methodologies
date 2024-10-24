@@ -7,5 +7,5 @@
 4. [Шутер]() -
 5. [Угадайка]() -
 6. [Змейка]() -
-7. [Квест]() -
+7. [Квест](https://github.com/IT-Compot/Python-methodologies/tree/main/first-stage/Quest) -
 
