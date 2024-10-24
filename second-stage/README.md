@@ -6,5 +6,5 @@
 3. [Космошутер]() -
 4. [Файтинг]() -
 5. [Платформер 3D]() -
-6. [Мобильная игра]() -
+6. [Мобильная игра](https://github.com/IT-Compot/Python-methodologies/tree/main/second-stage/mobile_game) -
 7. [Шутер 3D]() -  
