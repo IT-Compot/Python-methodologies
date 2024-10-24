@@ -59,7 +59,7 @@
 35. [Урок ]()
 36. [Урок ]()
 
-## Вторая ступень
+## [Вторая ступень](https://github.com/IT-Compot/Python-methodologies/tree/main/second-stage)
 
 ## Третья ступень
 
