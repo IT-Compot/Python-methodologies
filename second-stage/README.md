@@ -7,4 +7,4 @@
 4. [Файтинг](https://github.com/IT-Compot/Python-methodologies/tree/main/second-stage/fighting) -
 5. [Платформер 3D](https://github.com/IT-Compot/Python-methodologies/tree/main/second-stage/platformer_3D) -
 6. [Мобильная игра](https://github.com/IT-Compot/Python-methodologies/tree/main/second-stage/mobile_game) -
-7. [Шутер 3D]() -  
+7. [Шутер 3D](https://github.com/IT-Compot/Python-methodologies/tree/main/second-stage/shooter_3d) -  
