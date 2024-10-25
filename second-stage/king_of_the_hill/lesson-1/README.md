@@ -21,4 +21,5 @@
 
 На этот раз создаём 3D сцену:
 
+![2](https://github.com/user-attachments/assets/b2a44007-65d1-4e57-b512-ce43d47f2b0c)
 
