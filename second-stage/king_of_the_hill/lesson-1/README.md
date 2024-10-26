@@ -22,6 +22,9 @@
 
 На этот раз создаём 3D сцену:
 
+<p align="center">
+  <img width="400" height="250" src="https://github.com/user-attachments/assets/b2a44007-65d1-4e57-b512-ce43d47f2b0c">
+</p>
 ![2](https://github.com/user-attachments/assets/b2a44007-65d1-4e57-b512-ce43d47f2b0c)
 
 (тут надо типа вопрос красивый)\
