@@ -37,6 +37,8 @@
 
 Выберем простую и плоскую сверху фигуру, например, куб:
 
+(тут можно сделать сноску шо такое меш)
+
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/c9c31f83-186a-40df-97e0-c0c10ad34668">
 </p>
