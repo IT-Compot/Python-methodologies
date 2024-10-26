@@ -37,7 +37,9 @@
 
 Выберем простую и плоскую сверху фигуру, например, куб:
 
-![4](https://github.com/user-attachments/assets/c9c31f83-186a-40df-97e0-c0c10ad34668)
+<p align="center">
+  <img width="" height="" src="https://github.com/user-attachments/assets/c9c31f83-186a-40df-97e0-c0c10ad34668">
+</p>
 
 Настроим его. По умолчанию у нас появляется куб 1 на 1 (что?)
 
