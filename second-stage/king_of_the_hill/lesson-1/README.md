@@ -43,6 +43,9 @@
 
 Сделаем его чутка побольше, чтобы нам хватило пространства для игры:
 
-![5](https://github.com/user-attachments/assets/4083de8b-6361-4c08-ad01-17af6fd8b27a)
+<p align="center">
+  <src="https://github.com/user-attachments/assets/4083de8b-6361-4c08-ad01-17af6fd8b27a">
+</p>
+
 
 
