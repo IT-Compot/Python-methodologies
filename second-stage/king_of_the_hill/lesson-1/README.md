@@ -24,3 +24,9 @@
 
 ![2](https://github.com/user-attachments/assets/b2a44007-65d1-4e57-b512-ce43d47f2b0c)
 
+(тут надо типа вопрос красивый)\
+Если мы будем сталкивать врагов, что нам для этого понадобится добавить на сцену?
+
+Добавим платформу, узел называется `MeshInstance3D`:
+
+![3](https://github.com/user-attachments/assets/79555ea2-d49b-4e46-8574-da913e51dbea)
