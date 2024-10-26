@@ -44,7 +44,7 @@
 Сделаем его чутка побольше, чтобы нам хватило пространства для игры:
 
 <p align="center">
-  <src="https://github.com/user-attachments/assets/4083de8b-6361-4c08-ad01-17af6fd8b27a">
+  <img width="" height="" src="https://github.com/user-attachments/assets/4083de8b-6361-4c08-ad01-17af6fd8b27a">
 </p>
 
 
