@@ -2,6 +2,9 @@
 
 # Время
 
+![tick-tock-tick-tock-clock](https://github.com/user-attachments/assets/eb2e5fe4-5c4c-48df-ac90-98faa75320ff)
+
+
 На этом уроке реализуем смену времени суток. Работать будем с [CanvasModulate](https://docs.godotengine.org/en/stable/classes/class_canvasmodulate.html)
 
 Начнем с добавления узла. Его место в иерархии достаточно простое - просто крепите к родительскому узлу.
