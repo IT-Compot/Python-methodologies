@@ -356,3 +356,24 @@ func _process(delta):
 >`str()` это функция для преобразования данных в `String` (строка)
 >
 >`int()` это функция для преобразования данных в `Integer` (целое число)
+
+При запуске игры дети могут заметить, что время работает как-то не так. Формат времени у вас без дополнительного нуля для `чисел меньше десяти`. Подобной формулировкой вы можете подтолкнуть детей в нужное направление.
+
+![TimeNotCorrect](https://github.com/user-attachments/assets/03da113d-259e-4d0b-b55a-01676c391f94)
+
+Попробуйте дать им исправить этот момент самостоятельно.
+
+Итоговый скрипт:
+
+```gdscript
+func _process(delta):
+	if %CanvasModulate.minutes < 10:
+		$MarginContainer/Label.text = str(int(%CanvasModulate.hours), ":0", int(%CanvasModulate.minutes))
+	else:
+		$MarginContainer/Label.text = str(int(%CanvasModulate.hours), ":", int(%CanvasModulate.minutes))
+```
+
+![TimeIsCorrect](https://github.com/user-attachments/assets/7a313eea-09b8-42fd-8d06-8f368c440c70)
+
+
+И вот теперь у учеников исправленные часы. Вкусно и удобно.
