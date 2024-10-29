@@ -90,7 +90,10 @@
 
 ![image](https://github.com/user-attachments/assets/1b68d0ff-f841-48d8-8231-8d7c3811caac)
 
-Аналогично настраиваем `CollisionShape3D`:
+Аналогично настраиваем `CollisionShape3D`, настраиваем форму и поднимаем на 1 метр:
+
+![image](https://github.com/user-attachments/assets/bd32b278-eb4d-4639-8b4e-94965438b889)
+
 
 
 
