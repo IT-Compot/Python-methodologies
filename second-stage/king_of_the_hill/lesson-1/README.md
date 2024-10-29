@@ -94,6 +94,15 @@
 
 ![image](https://github.com/user-attachments/assets/bd32b278-eb4d-4639-8b4e-94965438b889)
 
+Мы будем наблюдать за процессов игры со стороны, значит какой узел нам ещё понадобится? 
+Это `Camera3D`:
+
+![image](https://github.com/user-attachments/assets/1bc41c34-1d69-483c-939d-05246dec21a0)
+
+h
+
+![image](https://github.com/user-attachments/assets/e169283f-32c9-4c2c-b990-68a04cab4602)
+
 
 
 
