@@ -90,6 +90,12 @@
 
 ![image](https://github.com/user-attachments/assets/1b68d0ff-f841-48d8-8231-8d7c3811caac)
 
+Аналогично настраиваем `CollisionShape3D`:
+
+
+
+
+
 
 
 
