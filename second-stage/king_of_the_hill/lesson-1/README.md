@@ -81,6 +81,17 @@
 
 ![image](https://github.com/user-attachments/assets/cc831fa6-b615-4b8d-b4dc-96d4b0066e5f)
 
+В трансформе поднимем его на 1 метр:
+
+![image](https://github.com/user-attachments/assets/0a773b8c-504e-4d85-b309-2c6ad58f8a1f)
+
+Внешний вид персонажа готов, что ещё ему необходимо добавить? Будет ли он сейчас стоять на платформе или провалится?\
+Ему нужна коллизия. Добавим её, узел называется `CollisionShape3D`:
+
+![image](https://github.com/user-attachments/assets/1b68d0ff-f841-48d8-8231-8d7c3811caac)
+
+
+
 
 
 
