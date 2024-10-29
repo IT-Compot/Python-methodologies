@@ -71,4 +71,20 @@
 
 ### Создание персонажа
 
+![GIF 29-10-2024 21-46-07](https://github.com/user-attachments/assets/7a8c0b94-af12-4626-9746-42f8f4425158)
+
+Персонаж у нас тоже теперь в 3D, и поэтому для него мы добавим дочерний узел `MeshInstance3D`:
+
+![image](https://github.com/user-attachments/assets/1bab0c67-7a83-4fe8-805c-718770a91975)
+
+Настроим его в правой части экрана, выберем `CapsuleMesh`:
+
+![image](https://github.com/user-attachments/assets/cc831fa6-b615-4b8d-b4dc-96d4b0066e5f)
+
+
+
+
+
+
+
 
