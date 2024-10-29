@@ -99,6 +99,9 @@
 
 ![image](https://github.com/user-attachments/assets/dae6b408-6687-4ee1-8b8e-6149651d0a72)
 
+Поставим камеру на сцену, чтобы она смотрела на персонажа:
+
+![1](https://github.com/user-attachments/assets/871bc2ed-6037-4d00-ada2-214544a33625)
 
 
 
