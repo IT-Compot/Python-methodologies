@@ -67,4 +67,8 @@
   <img width="" height="" src="https://github.com/user-attachments/assets/e22977b8-cdf7-4ab2-a061-22c490a05f6a">
 </p>
 
+На этом сцена готова, можно приступать к персонажу.
+
+### Создание персонажа
+
 
