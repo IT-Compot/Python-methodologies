@@ -103,6 +103,11 @@
 
 ![1](https://github.com/user-attachments/assets/871bc2ed-6037-4d00-ada2-214544a33625)
 
+Запускаем игру и видим, что всё серое:
+
+![image](https://github.com/user-attachments/assets/6b08e48a-2034-4667-9bbc-af336519c4e3)
+
+Это связано с освещением сцены. 
 
 
 
