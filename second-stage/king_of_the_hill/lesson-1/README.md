@@ -94,6 +94,10 @@
 
 ![image](https://github.com/user-attachments/assets/bd32b278-eb4d-4639-8b4e-94965438b889)
 
+Отлично, персонаж поностью готов.
+
+### Окружение и сцена
+
 Мы будем наблюдать за процессов игры со стороны, значит какой узел нам ещё понадобится?\
 Это `Camera3D`:
 
@@ -107,7 +111,21 @@
 
 ![image](https://github.com/user-attachments/assets/6b08e48a-2034-4667-9bbc-af336519c4e3)
 
-Это связано с освещением сцены. 
+Это связано с освещением сцены. Давайте его изменим, найдём три точки на верхней панели:
+
+![2](https://github.com/user-attachments/assets/ba23d6a0-7743-41a9-b6fe-2559ca892ab8)
+
+Обязательно нажмём на кнопку 
+
+![image](https://github.com/user-attachments/assets/f66d7885-fe39-47ff-b3ff-32279099207c)
+
+Слева в узлах сцены появится новый узел `WorldEnvironment`:
+
+
+
+
+
+
 
 
 
