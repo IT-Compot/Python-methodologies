@@ -115,11 +115,29 @@
 
 ![2](https://github.com/user-attachments/assets/ba23d6a0-7743-41a9-b6fe-2559ca892ab8)
 
-Обязательно нажмём на кнопку 
+Обязательно нажмём на кнопку `Добавить окружение к сцене`:
 
 ![image](https://github.com/user-attachments/assets/f66d7885-fe39-47ff-b3ff-32279099207c)
 
 Слева в узлах сцены появится новый узел `WorldEnvironment`:
+
+![image](https://github.com/user-attachments/assets/2e6442e1-1c42-4ea4-a084-68c57963cb76)
+
+Через ту же вернхнюю панель можно добавить в сцену солнце:
+
+![3](https://github.com/user-attachments/assets/56368a7b-fe31-4f09-8aba-3d408d739f6c)
+
+Окружение мира готово, можно приступать к написанию скрипта.
+
+### Скрипт персонажа
+
+Персонажа можно переименовать и прикрепить к нему готовый скрипт из предложенного шаблона:
+
+![4](https://github.com/user-attachments/assets/247c29ab-b29b-4902-a100-82d195c130d1)
+
+
+
+
 
 
 
