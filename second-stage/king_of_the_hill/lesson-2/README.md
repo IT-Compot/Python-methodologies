@@ -15,7 +15,8 @@
 Теперь, когда персонаж и сцена у нас готовы, можно приступать к созданию врагов.\
 Умное перемещение им не нужно, поэтому возьмём более простой узел, чем `CharacterBody3D`, это `RigidBody3D`:
 
-![5](https://github.com/user-attachments/assets/55cac466-412d-4ec8-83fd-5ee4d71e6929)
+![Uploading 6.gif…]()
+
 
 Какие узлы понадобятся `RigidBody3D` для его корректной работы?
 Конечно, это `MeshInstance3D` и `CollisionShape3D`:
