@@ -22,11 +22,11 @@
 
 ![image](https://github.com/user-attachments/assets/da6af2cf-6043-407d-8601-00544e26d39d)
 
-Настроим эти узлы по аналогии с персонажем:
+Настроим эти узлы по аналогии с персонажем, добавим в `MeshInstance3D` сферический меш `SphereMesh`, а в `CollisionShape3D` добавим `SphereShape3D`:
 
 ![8](https://github.com/user-attachments/assets/92f36613-2af6-494b-ac5d-140e8ecc9419)
 
-Переименуем наш `RigidBody3D` в бота и скрепим узлы, чтобы их можно было перетаскивать по сцене:
+Переименуем наш `RigidBody3D` в `bot` и скрепим узлы, чтобы их можно было перетаскивать по сцене:
 
 ![9](https://github.com/user-attachments/assets/45f68d3b-d881-4bec-bd64-c3c386c46bb2)
 
