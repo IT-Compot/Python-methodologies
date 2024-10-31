@@ -83,7 +83,7 @@
 
 Прикрепим от Таймера соответствующий сигнал:
 
-![image](https://github.com/user-attachments/assets/d86a987d-1d77-4f7c-be7d-a9f95b7a2587)
+![14](https://github.com/user-attachments/assets/35382b72-d70b-4b0c-acbf-59c39f0c2fef)
 
 Далее можно приступать к коду.
 
