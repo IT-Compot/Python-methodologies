@@ -91,6 +91,7 @@
 
 Определим, что бот падает в зону `Area3D`, напишем принт в функции `_on_area_3d_body_entered()`:
 
+![image](https://github.com/user-attachments/assets/3a556018-152e-4ea4-905e-de2f153fd312)
 
 
 
