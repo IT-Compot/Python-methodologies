@@ -26,13 +26,10 @@
 
 ![8](https://github.com/user-attachments/assets/92f36613-2af6-494b-ac5d-140e8ecc9419)
 
-Переименуем наш `RigidBody3D` в бота:
+Переименуем наш `RigidBody3D` в бота и скрепим узлы, чтобы их можно было перетаскивать по сцене:
 
-![image](https://github.com/user-attachments/assets/39247de6-f2cd-4310-994a-574cad096ed6)
+![9](https://github.com/user-attachments/assets/45f68d3b-d881-4bec-bd64-c3c386c46bb2)
 
-И скрепим узлы, чтобы их можно было перетаскивать по сцене:
-
-![8](https://github.com/user-attachments/assets/6d9b14ff-beba-428a-8c6f-3ed862ed017f)
 
 
 
