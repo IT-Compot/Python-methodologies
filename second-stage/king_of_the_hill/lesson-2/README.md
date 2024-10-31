@@ -57,6 +57,9 @@
 
 ![12](https://github.com/user-attachments/assets/c1fb1b8d-00f9-4eef-a20a-26250019fd74)
 
+Самая удобная форма коллизии в нашем случае будет `CylinderShape3D`:
+
+![image](https://github.com/user-attachments/assets/07c326b0-0536-467a-b9f1-7d3e9a05da15)
 
 
 
