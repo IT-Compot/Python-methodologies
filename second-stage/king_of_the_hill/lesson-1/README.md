@@ -31,7 +31,7 @@
   <img width="577" height="422" src="https://github.com/user-attachments/assets/b2a44007-65d1-4e57-b512-ce43d47f2b0c">
 </p>
 
->[!TIP]
+>[!QUESTION]
 > Если мы будем сталкивать врагов, что нам для этого понадобится добавить на сцену?
 
 Добавим платформу, узел называется `MeshInstance3D`:
