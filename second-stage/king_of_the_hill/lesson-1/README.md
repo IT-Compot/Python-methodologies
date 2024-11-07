@@ -197,8 +197,13 @@
 
 Далее перейдём сразу в его инспектор и во вкладке `Geometry` зададим ему материал:
 
+![5](https://github.com/user-attachments/assets/778db3df-ee28-4117-a066-f8e82fc681b2)
 
+И настроим его:
 
+![image](https://github.com/user-attachments/assets/0073c35c-d6b1-4fbd-a81a-c4c52cd069e9)
+
+Тогда картинки перераспределятся по поверхности меша.
 
 ### Свои клавиши управления
 
