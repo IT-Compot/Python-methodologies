@@ -1,4 +1,4 @@
-## Царь горы
+## Террария
 
 ### Список уроков:
 1. [Урок 1](https://github.com/IT-Compot/Python-methodologies/tree/main/second-stage/terraria/lesson-1) - Карта, автоколлизия
