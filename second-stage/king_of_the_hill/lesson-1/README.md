@@ -38,15 +38,12 @@
 
 ![3](https://github.com/user-attachments/assets/79555ea2-d49b-4e46-8574-da913e51dbea)
 
-<p align="center">
-  <img width="900" src="https://github.com/user-attachments/assets/79555ea2-d49b-4e46-8574-da913e51dbea">
-</p>
-
 ### Настроим платформу для игры
 
 Выберем простую и плоскую сверху фигуру, например, куб:
 
-(тут можно сделать сноску шо такое меш)
+> [!IMPORTANT]
+> Что такое Меш? По-английский переводится как `сетчатый`, `ячеистый`. В 3D моделировании набор вершин и многоугольников, определяющих форму трёхмерного объекта, поэтому такое название.
 
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/c9c31f83-186a-40df-97e0-c0c10ad34668">
