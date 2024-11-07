@@ -63,7 +63,7 @@
 Настроим его. По умолчанию у нас появляется куб 1 на 1 метр.
 
 Сделаем его чутка побольше, чтобы нам хватило пространства для игры.
-Нажмём на значок ![бэ](https://github.com/user-attachments/assets/63104398-fa87-4cec-b3cd-2b761d65ca3a), чтобы значения в окошках не привязывались друг к другу и были независимыми:
+Нажмём на значок  <sub>![бэ](https://github.com/user-attachments/assets/63104398-fa87-4cec-b3cd-2b761d65ca3a)</sub>, чтобы значения в окошках не привязывались друг к другу и были независимыми:
 
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/4083de8b-6361-4c08-ad01-17af6fd8b27a">
