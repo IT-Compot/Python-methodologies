@@ -39,7 +39,7 @@
 ![3](https://github.com/user-attachments/assets/79555ea2-d49b-4e46-8574-da913e51dbea)
 
 <p align="center">
-  <img width="577" src="https://github.com/user-attachments/assets/79555ea2-d49b-4e46-8574-da913e51dbea">
+  <img width="700" src="https://github.com/user-attachments/assets/79555ea2-d49b-4e46-8574-da913e51dbea">
 </p>
 
 ### Настроим платформу для игры
