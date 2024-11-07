@@ -89,6 +89,9 @@
 
 ### Создание персонажа
 
+>[!TIP]
+> Нужно ли персонажу заранее создавать узел в деерве сцены? Какой это будет узел?
+
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/7a8c0b94-af12-4626-9746-42f8f4425158">
 </p>
@@ -211,7 +214,9 @@
 
 И настроим его параметр `UV1`:
 
-![image](https://github.com/user-attachments/assets/0073c35c-d6b1-4fbd-a81a-c4c52cd069e9)
+<p align="center">
+  <img width="" height="" src="https://github.com/user-attachments/assets/0073c35c-d6b1-4fbd-a81a-c4c52cd069e9">
+</p>
 
 Тогда картинки перераспределятся по поверхности меша.
 
