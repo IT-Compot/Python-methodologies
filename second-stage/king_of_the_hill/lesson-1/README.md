@@ -187,6 +187,10 @@
   <img width="" height="" src="https://github.com/user-attachments/assets/ccfdb9be-1cd7-43f2-83ab-bc66c9486823">
 </p>
 
+Настроить внешний вид объекта можно и без подгрузки текстуры:
+
+![image](https://github.com/user-attachments/assets/18603817-066c-4c9e-a553-be21c22181a6)
+
 ### Свои клавиши управления
 
 в
