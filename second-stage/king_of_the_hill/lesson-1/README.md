@@ -62,8 +62,6 @@
 
 По итогу имеем такую платформу:
 
-![image](https://github.com/user-attachments/assets/b86a1da4-85ba-4e0c-8a63-e52b0591c4d4)
-
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/b86a1da4-85ba-4e0c-8a63-e52b0591c4d4">
 </p>
@@ -81,15 +79,11 @@
 
 ### Создание персонажа
 
-![GIF 29-10-2024 21-46-07](https://github.com/user-attachments/assets/7a8c0b94-af12-4626-9746-42f8f4425158)
-
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/7a8c0b94-af12-4626-9746-42f8f4425158">
 </p>
 
 Персонаж у нас тоже теперь в 3D, и поэтому для него мы добавим дочерний узел `MeshInstance3D`:
-
-![image](https://github.com/user-attachments/assets/1bab0c67-7a83-4fe8-805c-718770a91975)
 
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/1bab0c67-7a83-4fe8-805c-718770a91975">
@@ -97,15 +91,11 @@
 
 Настроим его в правой части экрана, выберем `CapsuleMesh`:
 
-![image](https://github.com/user-attachments/assets/cc831fa6-b615-4b8d-b4dc-96d4b0066e5f)
-
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/cc831fa6-b615-4b8d-b4dc-96d4b0066e5f">
 </p>
 
 В трансформе поднимем его на 1 метр:
-
-![image](https://github.com/user-attachments/assets/0a773b8c-504e-4d85-b309-2c6ad58f8a1f)
 
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/0a773b8c-504e-4d85-b309-2c6ad58f8a1f">
@@ -114,15 +104,11 @@
 Внешний вид персонажа готов, что ещё ему необходимо добавить? Будет ли он сейчас стоять на платформе или провалится?\
 Ему нужна коллизия. Добавим её, узел называется `CollisionShape3D`:
 
-![image](https://github.com/user-attachments/assets/1b68d0ff-f841-48d8-8231-8d7c3811caac)
-
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/1b68d0ff-f841-48d8-8231-8d7c3811caac">
 </p>
 
 Аналогично настраиваем `CollisionShape3D`, настраиваем форму и поднимаем на 1 метр:
-
-![image](https://github.com/user-attachments/assets/bd32b278-eb4d-4639-8b4e-94965438b889)
 
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/bd32b278-eb4d-4639-8b4e-94965438b889">
@@ -135,15 +121,11 @@
 Мы будем наблюдать за процессов игры со стороны, значит какой узел нам ещё понадобится?\
 Это `Camera3D`:
 
-![image](https://github.com/user-attachments/assets/dae6b408-6687-4ee1-8b8e-6149651d0a72)
-
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/dae6b408-6687-4ee1-8b8e-6149651d0a72">
 </p>
 
 Поставим камеру на сцену, чтобы она смотрела на персонажа:
-
-![1](https://github.com/user-attachments/assets/871bc2ed-6037-4d00-ada2-214544a33625)
 
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/871bc2ed-6037-4d00-ada2-214544a33625">
@@ -151,15 +133,11 @@
 
 Запускаем игру и видим, что всё серое:
 
-![image](https://github.com/user-attachments/assets/6b08e48a-2034-4667-9bbc-af336519c4e3)
-
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/6b08e48a-2034-4667-9bbc-af336519c4e3">
 </p>
 
 Это связано с освещением сцены. Давайте его изменим, найдём три точки на верхней панели:
-
-![2](https://github.com/user-attachments/assets/ba23d6a0-7743-41a9-b6fe-2559ca892ab8)
 
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/ba23d6a0-7743-41a9-b6fe-2559ca892ab8">
@@ -167,23 +145,17 @@
 
 Обязательно нажмём на кнопку `Добавить окружение к сцене`:
 
-![image](https://github.com/user-attachments/assets/f66d7885-fe39-47ff-b3ff-32279099207c)
-
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/f66d7885-fe39-47ff-b3ff-32279099207c">
 </p>
 
 Слева в узлах сцены появится новый узел `WorldEnvironment`:
 
-![image](https://github.com/user-attachments/assets/2e6442e1-1c42-4ea4-a084-68c57963cb76)
-
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/2e6442e1-1c42-4ea4-a084-68c57963cb76">
 </p>
 
 Через ту же вернхнюю панель можно добавить в сцену солнце:
-
-![3](https://github.com/user-attachments/assets/56368a7b-fe31-4f09-8aba-3d408d739f6c)
 
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/56368a7b-fe31-4f09-8aba-3d408d739f6c">
@@ -194,8 +166,6 @@
 ### Скрипт персонажа
 
 Персонажа можно переименовать и прикрепить к нему готовый скрипт из предложенного шаблона:
-
-![4](https://github.com/user-attachments/assets/247c29ab-b29b-4902-a100-82d195c130d1)
 
 <p align="center">
   <img width="" height="" src="https://github.com/user-attachments/assets/247c29ab-b29b-4902-a100-82d195c130d1">
