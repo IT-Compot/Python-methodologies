@@ -133,7 +133,7 @@ func _on_body_exited(body):
 
 
 
-Теперь нам нужно сздать сам диалог со NPC. Делать это мы будем в  `CanvasLayer`, который переименуем в `UI`. 
+Теперь нам нужно создать сам диалог со NPC. Делать это мы будем в  `CanvasLayer`, который переименуем в `UI`. 
 
 ![image](https://github.com/user-attachments/assets/1a42705e-8521-42e4-98b0-52cbde959d5f)
 
