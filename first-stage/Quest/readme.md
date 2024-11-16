@@ -13,13 +13,13 @@
 - Повторить списки
 - Создать несколько объектов
 - Показать максимум своих знаний по движку и языку в частности
+- Много работы с интерфейсом
 
 ## Список уроков:
-- Урок 1 - [Карта, игрок](https://github.com/IT-Compot/Python-methodologies/blob/main/lessons/Quest/lessons/lesson-1.md)
-- Урок 2 - [Боты](#урок-2)
-- Урок 3 - (Квест)
-- Урок 4 - (Доработка квеста)
-- Урок 5 - 
-- Урок 6 - 
-- Урок 7 - 
-- Урок 8 - 
+- Урок 1 - [Игрок](https://github.com/IT-Compot/Python-methodologies/blob/main/lessons/Quest/lessons/lesson-1.md)
+- Урок 2 - [Карта](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-2.md)
+- Урок 3 - [Боты](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-3.md)
+- Урок 4 - [Квесты](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-4.md)
+- Урок 5 - [Интерфейс квестов](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-5.md)
+- Урок 6 - [Время](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-6.md)
+- [Допы]()
