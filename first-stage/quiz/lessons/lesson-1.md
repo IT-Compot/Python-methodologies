@@ -1,1 +1,196 @@
 # Урок 1
+
+## Краткое содержание
+
+- Добавление основных узлов;
+- Вывод загаданного слова;
+- Проверка правильно введеной буквы.
+
+# Добавление основных узлов
+
+Сперва создаете главную сцену, где корневым узлом будет Node2D. Переименуйте его в что-то вроде `Game` и после прикрепляйте в качестве дочернего узла `Control`.
+
+У `Control` должны быть дочерние узлы:
+- `ColorRect`
+- `Label`
+- `LineEdit`
+- `Button`
+
+
+![image](https://github.com/user-attachments/assets/a0a8e2af-23d0-40a3-8f2f-46d5f52373e9)
+
+Выравнивайте и меняйте цвета на свой вкус. В материалах проекта можете найти готовые темы и шейдеры. Примените их, особенно, если вы работаете с изиками. 
+
+>[!Note]
+>Применить тему можно, если перетащить материал темы в `Control` во вкладке `Theme` в свойство `Theme`. ![image](https://github.com/user-attachments/assets/634c48e4-8ac2-4607-8d69-5f37345928ef)
+
+
+Если вы применили тему к `Control`, то в инспекторе темы сможете настроить каждый элемент отдельно: кнопки, надписи и т.д.
+
+![image](https://github.com/user-attachments/assets/0186da65-0040-4ca2-9803-5821a21d0ea3)
+
+Можете показать детям все настройки. Там в основном они отвечают за цвет и границы прямоугольников. С изиками - лучше ничего не трогать, кроме цвета.
+
+Что касается `ColorRect`, то к нему можно применить шейдеры. В файлах их два: полосатый и со звездами.
+
+![image](https://github.com/user-attachments/assets/02a3cade-4850-4963-b928-61447aac9ada)
+
+
+
+> Для этого шейдера надо выбрать цвета: `Color One` и `Color Two`, скорость проигрывания: `Speed`, количество линий: `Line Count`, угол: `Angle` и "замыливание": `Blur`.
+
+![image](https://github.com/user-attachments/assets/df4f8c11-dc69-415a-86cf-063579d6571b)
+
+> А для шейдера `Stars` лучше кроме цвета самого `ColorRect` ничего не менять или оставьте это на последок, если останется время.
+
+
+Как настроите тему - можно приступать к скрипту. Дайте ученикам самим застилизовать свои игры. Где-то минут 10 максимум на это.
+
+## Скрипт
+
+>[!Tip]
+>Сначала можешь ознакомиться со всем скриптом, чтобы лучше понимать общий вектор работы.
+
+<details>
+  <summary>Скрипт целиком</summary>
+
+  ```gdscript
+extends Node2D
+
+var dictionary = [
+	"яблоко",
+	"банан",
+	"груша",
+	"апельсин",
+	"киви",
+	"ананас",
+	"мандарин",
+	"вишня",
+	"персик",
+	"слива",
+	"арбуз",
+	"ежевика",
+	"черника",
+	"клубника",
+	"манго",
+	"лимон",
+	"грейпфрут",
+	"маракуйя",
+	"фейхоа",
+	"папайя"
+]
+
+
+var secret_word = ""
+var letter = ""
+
+
+var good = []
+var bad = []
+
+var tries = 6
+var good_count = 0
+
+
+func _ready():
+	randomize()
+	var number_word = randi_range(0, len(dictionary) - 1)
+	secret_word = dictionary[number_word]
+	print(secret_word)
+	for i in len(secret_word):
+		print("i = ", i)
+		$Control/Label.text += "_ "
+
+
+func _input(event):
+	if event is InputEventKey and event.is_pressed():
+		$Control/LineEdit.grab_focus()
+
+
+func _on_button_pressed():
+	letter = $Control/LineEdit.text
+	$Control/LineEdit.text = ""
+	$Control/LineEdit.placeholder_text = "Буква"
+	
+	if len(letter) != 1:
+		$Control/LineEdit.placeholder_text = "Только 1 букву"
+		return
+	
+	if letter in secret_word:
+		add_correct_letter()
+	else:
+		add_wrong_letter()
+			
+	print(good, " good")
+	print(bad, " bad")
+
+
+func _on_line_edit_text_submitted(new_text):
+	letter = $Control/LineEdit.text
+	$Control/LineEdit.text = ""
+	$Control/LineEdit.placeholder_text = "Буква"
+	
+	if len(letter) != 1:
+		$Control/LineEdit.placeholder_text = "Только 1 букву"
+		return
+	
+	if letter in secret_word:
+		add_correct_letter()
+	else:
+		add_wrong_letter()
+			
+	print(good, " good")
+	print(bad, " bad")
+
+
+func add_correct_letter():
+	if letter in secret_word:
+		good.append(letter)
+		$Control/Label.text = ""
+		good_count = 0
+		for i in len(secret_word):
+			print("i = ", i , secret_word[i])
+			if secret_word[i] in good:
+				$Control/Label.text += secret_word[i]
+				good_count += 1
+			else:
+				$Control/Label.text += "_ "
+		if good_count == len(secret_word):
+			check_win()
+
+
+func add_wrong_letter():
+	tries -= 1
+	$Control/TriesLabel.text = "Попыток: " + str(tries)
+	bad.append(letter)
+	$Control/BadLabel.text += letter + str(", ")
+		
+	if tries == 0:
+		check_game_over()
+
+
+func check_win():
+	$Control/Label.text = secret_word
+	$Control/StateLabel.text = "ТЫ ПОБЕДИЛ"
+	$Control/Button.disabled = true
+	$Control/LineEdit.editable = false
+	$Timer.start()
+
+
+func check_game_over():
+	$Control/Label.text = secret_word
+	$Control/StateLabel.text = "ТЫ ПРОИГРАЛ"
+	$Control/Button.disabled = true
+	$Control/LineEdit.editable = false
+	$Timer.start()
+
+
+func _on_timer_timeout():
+	get_tree().reload_current_scene()
+
+  ```
+  
+</details>
+
+
+Прикрепляем скрипт к корневому узлу `Node2D`
