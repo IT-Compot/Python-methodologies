@@ -147,7 +147,7 @@ func add_correct_letter():
 	good.append(letter)
 	$Control/Label.text = ""
 	good_count = 0
-	for i in len(secret_word):
+	for i in range(len(secret_word)):
 		print("i = ", i , secret_word[i])
 		if secret_word[i] in good:
 			$Control/Label.text += secret_word[i]
