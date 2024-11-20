@@ -116,3 +116,14 @@ func add_correct_letter():
 	if good_count == len(secret_word): # если счетчик равен длине загаданного слова, то вызывается метод победы
 		set_win()
 ```
+Ну, а скрипт самого `set_win()` достаточно идентичен `set_game_over()`.
+
+```gdscript
+func set_win():
+	$Control/Label.text = secret_word # покажем игроку слово на всякий случай
+	$Control/StateLabel.text = "ТЫ ПОБЕДИЛ" # сообщаем о победе
+	$Control/StateLabel.add_theme_color_override("font_color", Color(1, 1, 1)) # можете задать цвет на свой вкус
+	$Control/Button.disabled = true # так же выключаем интерфейс
+	$Control/LineEdit.editable = false
+```
+
