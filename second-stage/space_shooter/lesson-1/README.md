@@ -66,3 +66,5 @@
 
 Теперь настроим внешний вид неба.
 
+![6](https://github.com/user-attachments/assets/33e76539-cf6e-4365-9498-d5e316288052)
+
