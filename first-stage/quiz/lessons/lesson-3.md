@@ -128,3 +128,35 @@ func set_win():
 	$Control/LineEdit.editable = false
 ```
 
+Всё, теперь игрок еще и побеждает. Отлично. Но теперь надо перезапускать игру.
+
+## Перезапуск игры
+
+Добавляем `Timer` и сигнал `timeout` к скрипту.
+В самом скрипте пишем следующее:
+
+```gdscript
+func _on_timer_timeout():
+	get_tree().reload_current_scene() # получаем дерево и перезапускаем сцену
+```
+
+А вызываться `timer` будет в методах победы и поражения.
+
+```gdscript
+func set_win():
+	$Control/Label.text = secret_word
+	$Control/StateLabel.text = "ТЫ ПОБЕДИЛ"
+	$Control/StateLabel.add_theme_color_override("font_color", Color(1, 1, 1))
+	$Control/Button.disabled = true
+	$Control/LineEdit.editable = false
+	$Timer.start() # здесь
+
+
+func set_game_over():
+	$Control/Label.text = secret_word
+	$Control/StateLabel.text = "ТЫ ПРОИГРАЛ"
+	$Control/StateLabel.add_theme_color_override("font_color", Color(0.573, 0, 0.161))
+	$Control/Button.disabled = true
+	$Control/LineEdit.editable = false
+	$Timer.start() # здесь
+```
