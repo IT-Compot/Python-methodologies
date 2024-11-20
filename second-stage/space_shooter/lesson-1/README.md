@@ -32,6 +32,8 @@
 
 ![image](https://github.com/user-attachments/assets/fb4f299d-98e2-4888-a921-c98b03c48d93)
 
+### Делаем окружение, космос
+
 На этом занятии будем создавать реалистичную сцену космоса, поэтому подгрузим в движок картинку космоса (можно скачать в интернете):
 
 ![image](https://github.com/user-attachments/assets/aa06b9bf-bf5e-4b77-87a2-5269edcb2625)
@@ -64,8 +66,20 @@
 
 ![image](https://github.com/user-attachments/assets/a88cec3e-8219-42c2-9c9b-162993973a4c)
 
-Теперь настроим внешний вид неба.
+Теперь настроим внешний вид неба, на гифки видны основные параметры, которые мы можем настроить, но можно поробовать и остальные.
 
 ![7](https://github.com/user-attachments/assets/8ed0c38e-3204-4290-9e90-ca5c234e42ee)
+
+На этом закончим с настройкой неба и приступим к космическому кораблю.
+
+### Делаем космический корабль
+
+Корабль мы тоже будем искать в интернете, в этом нам очень поможет сайт Sketchfab (ссылку сюда вставить):
+
+![image](https://github.com/user-attachments/assets/d125944f-6f01-437d-8d3d-202f3b5cd7e9)
+
+Вот мы нашли понравившийся нам корабль, справа у него есть иконка ![image](https://github.com/user-attachments/assets/82be4ecc-6c83-428c-b000-f42bc335343e), заходим на страницу этой 3D модели, находим кнопку `Download 3D model` и выбираем формат `glTF`:
+
+![8](https://github.com/user-attachments/assets/defc2ade-d700-45bf-9055-0e3a405102b6)
 
 
