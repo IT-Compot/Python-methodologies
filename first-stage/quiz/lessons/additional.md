@@ -31,7 +31,7 @@ func add_wrong_letter():
 #### Победа
 ```gdscript
 func set_win():
-	$AudioNode/AudioWin
+	$AudioNode/AudioWin.play()
 ```
 
 #### Поражение
