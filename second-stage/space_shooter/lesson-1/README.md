@@ -44,4 +44,25 @@
 
 ![2](https://github.com/user-attachments/assets/c12bdd76-1fe3-4585-aeec-08212b8f812b)
 
+А теперь переходим к настройке данного узла, переходим в правую часть экрана, в инспектор, видим там параметр `Environment`, задаём ему `Environment`:
+
+![3](https://github.com/user-attachments/assets/95136982-3c88-4dbb-9874-0a46dff9b3d3)
+
+И настраиваем окружение `Environment`, выбираем вкладку `Background`, в ней в параметре `Mode` выбираем вариант `Sky`, после чего появится вкладка `Sky` ниже. До этих действий её там не будет.
+
+![5](https://github.com/user-attachments/assets/478ac670-1272-4654-873b-45bf2fcfe21b)
+
+И теперь настраиваем небо, тыкаем на окошко параметра `Sky`, выбираем `Создать Sky` кликаем на то же окошко, где появилось слово `Sky`, сразу у нас есть новое окошко снизу в параметре `Sky Material`, там же выбираем `PanoramaSkyMaterial`:
+
+![6](https://github.com/user-attachments/assets/807c3471-6221-4f29-92c3-029f96e2d950)
+
+Мы видим тут параметр `Panorama`, в котором пусто, перетягиваем туда файлик со звёздным небом (из левой части экрана, гед находится файловая система):
+
+![image](https://github.com/user-attachments/assets/50e4abb7-529f-4d83-9445-17e73c119ff4)
+
+Результат:
+
+![image](https://github.com/user-attachments/assets/a88cec3e-8219-42c2-9c9b-162993973a4c)
+
+Теперь настроим внешний вид неба.
 
