@@ -126,3 +126,7 @@
 
 ![15](https://github.com/user-attachments/assets/fe4f02e8-5076-4d34-a9af-f743b11ccb5a)
 
+Добавим кораблик на сцену, сделаем это через меню правого клика по корневому узлу основной сцены:
+
+![16](https://github.com/user-attachments/assets/bc1d358e-6882-4cc5-a9b6-21b4cb314ed1)
+
