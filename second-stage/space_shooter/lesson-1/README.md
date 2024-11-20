@@ -122,4 +122,7 @@
 
 ![image](https://github.com/user-attachments/assets/14fab4bd-5f3f-4b4e-9c19-7a1aa78e030f)
 
-Сохраним изменения.
+Сохраним изменения:
+
+![15](https://github.com/user-attachments/assets/fe4f02e8-5076-4d34-a9af-f743b11ccb5a)
+
