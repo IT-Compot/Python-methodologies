@@ -134,5 +134,16 @@
 
 ![19](https://github.com/user-attachments/assets/d5c610dd-9e05-42fd-b6e4-f6114420b46a)
 
+Чтобы проще было настраивать камеру, можно включить режим двух окон:
 
+![image](https://github.com/user-attachments/assets/3e63b9ea-80f9-4e4d-bcdf-9a4659c6a14d)
 
+И в одном из них включить предпросмотр:
+
+![image](https://github.com/user-attachments/assets/ca57a9dd-d217-4659-9301-ccf0845374ca)
+
+Сделаем так, чтобы камера смотрела прямо на корабль. И настроим свет на сцене, это узел `DirectionalLight3D`:
+
+![image](https://github.com/user-attachments/assets/5d63b408-733c-4489-a6bf-d99531050475)
+
+Отлично, сцена готова, на следующем занятии можно приступать к написанию скрипта.
