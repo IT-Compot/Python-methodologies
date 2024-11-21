@@ -130,3 +130,8 @@
 
 ![16](https://github.com/user-attachments/assets/bc1d358e-6882-4cc5-a9b6-21b4cb314ed1)
 
+А теперь пойдём настраивать коллюзию. Используем простые узлы `CollisionShape3D`, их можно добавлять на сцену корабля в любом количестве, однако здесь мне будет достаточно только одного `CollisionShape3D`:
+
+![18](https://github.com/user-attachments/assets/18513878-e241-4a6b-93db-7dde46353b95)
+
+
