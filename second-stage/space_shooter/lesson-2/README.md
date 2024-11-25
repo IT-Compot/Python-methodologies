@@ -23,3 +23,11 @@
 ![image](https://github.com/user-attachments/assets/d6ca4ca5-9428-445c-8bce-731803f7fc96)
 
 Создали пустой скрипт и давайте подумаем насчёт физики. В космосе мы можем лететь вперёд по прямой набирая положительную скорость, а если мы тормозим, то скорость уменьшается, значит она постепенно будет переходить в отрицательную. Создадим в скрипте два типа скорости.
+
+```GDScript
+extends CharacterBody3D
+
+@export var max_speed = 50
+@export var max_negative_speed = -30
+@export var acceleration = 0.6
+```
