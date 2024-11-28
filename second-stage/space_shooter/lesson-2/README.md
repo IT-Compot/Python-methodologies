@@ -74,6 +74,25 @@ func get_input(delta):
 	if Input.is_action_pressed("reset"):
 		pass
 ```
+Что ж, теперь мы хотим увидеть результат отработки функции get_input(), но как нам это сделать? Функцию нужно вызвать внутри другой функции, заранее описанной разработчиками движка. Это у нас будет `_physics_process(delta)`, она как раз по умолчанию получает delta, её мы и передадим в get_input():
+
+```GDScript
+func _physics_process(delta: float) -> void:
+	get_input(delta)
+```
+get_input() отработает и изменит значение в переменной current_speed, то есть там будет лежать разное значение в зависимости от того, как мы понажимали на кнопки. Но корабль ещё не двигается, хотя скорость задана. Чего нам не хватает сделать? Конечно, передать эту скорость в функцию, которая будет перемещать объект и указать ось, по которой мы перемещаем. Это и сделаем с следующей строке:
+
+![image](https://github.com/user-attachments/assets/cb94331f-1bf6-4f62-b821-eef2cac06309)
+
+А далее передадим скорость в `move_and_collide()` и домножим её на delta. Получается следующий скрипт:
+
+```GDScript
+func _physics_process(delta: float) -> void:
+	get_input(delta)
+	velocity = -transform.basis.z * current_speed
+	move_and_collide(velocity * delta)
+```
+
 
 
 
