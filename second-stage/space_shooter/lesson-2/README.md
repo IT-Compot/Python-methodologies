@@ -27,8 +27,8 @@
 ```GDScript
 extends CharacterBody3D
 
-@export var max_speed = 50
-@export var max_negative_speed = -30
+@export var max_speed = 50.0
+@export var max_negative_speed = -30.0
 @export var acceleration = 0.6
 
 var current_speed = 0.0
@@ -93,6 +93,34 @@ func _physics_process(delta: float) -> void:
 	move_and_collide(velocity * delta)
 ```
 `transform` домножили на -1 (стоит знак минус, то есть параметр отрицательный) потому что мы ранее развернули корабль в минусы по оси `Z`, поэтому летим вперёд в минусы.
+
+Если вылетела ошибка следующего толка: ![image](https://github.com/user-attachments/assets/b6bb1e47-ba61-4282-af73-536a3d1b53a0) значит, где-то в скрипте пытаемся передать int'ы заместо float'ов. Найдем их, поставим .0 в конце чтобы указать тип данных и проблема решена.
+
+Вот конечный вариант скрипта, написанного на данном этапе:
+
+```GDScript
+extends CharacterBody3D
+
+@export var max_speed = 50.0
+@export var max_negative_speed = -30.0
+@export var acceleration = 0.6
+
+var current_speed = 0.0
+
+func get_input(delta):
+	if Input.is_action_pressed("increase_speed"):
+		current_speed = lerp(current_speed, max_speed, acceleration * delta)
+	if Input.is_action_pressed("reduce_speed"):
+		current_speed = lerp(current_speed, max_negative_speed, acceleration * delta)
+	if Input.is_action_pressed("reset"):
+		pass
+		
+		
+func _physics_process(delta: float) -> void:
+	get_input(delta)
+	velocity = -transform.basis.z * current_speed
+	move_and_collide(velocity * delta)
+```
 
 
 
