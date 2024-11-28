@@ -92,7 +92,7 @@ func _physics_process(delta: float) -> void:
 	velocity = -transform.basis.z * current_speed
 	move_and_collide(velocity * delta)
 ```
-
+`transform` домножили на -1 (стоит знак минус, то есть параметр отрицательный) потому что мы ранее развернули корабль в минусы по оси `Z`, поэтому летим вперёд в минусы.
 
 
 
