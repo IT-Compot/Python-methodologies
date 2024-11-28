@@ -31,3 +31,11 @@ extends CharacterBody3D
 @export var max_negative_speed = -30
 @export var acceleration = 0.6
 ```
+
+Теперь мы можем создать клавиши для движения корабля, зайдём в `Проект` -> `Настройки проекта` и привяжем кнопки:
+
+![21](https://github.com/user-attachments/assets/cd4f8301-f6f4-48f4-9fb5-2c873a15aae4)
+
+Отлично, теперь возвращаемся к написанию скрипта:
+
+
