@@ -96,6 +96,8 @@ func _physics_process(delta: float) -> void:
 
 Если вылетела ошибка следующего толка: ![image](https://github.com/user-attachments/assets/b6bb1e47-ba61-4282-af73-536a3d1b53a0), значит, где-то в скрипте мы пытаемся передать int'ы заместо float'ов. Найдем их, поставим .0 в конце, чтобы указать тип данных, и проблема решена.
 
+В `reset` мы можем скопипастить то же самое про `current_speed`, только какое значение мы впишем на место той скорости, к которой стремится корабль? Там будет 0, но важно отметить, что это 0 типа `float`, то есть 0.0.
+
 Вот конечный вариант скрипта, написанного на данном этапе:
 
 ```GDScript
@@ -113,7 +115,7 @@ func get_input(delta):
 	if Input.is_action_pressed("reduce_speed"):
 		current_speed = lerp(current_speed, max_negative_speed, acceleration * delta)
 	if Input.is_action_pressed("reset"):
-		pass
+		current_speed = lerp(current_speed, 0.0, acceleration * delta)
 		
 		
 func _physics_process(delta: float) -> void:
