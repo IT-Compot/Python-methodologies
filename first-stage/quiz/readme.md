@@ -4,6 +4,6 @@
 В этом проекте затрагивается работа со списком
 
 ## Темы уроков
-1) Добавление основных узлов, вывод загад. слова защифровано, проверка правильно введеной буквы
-2) Код замены звездочки на отгад. букву, проверка неправильных букв, вывод их списком 
-3) Добавление списка со словами(словарь), рандомизация загад. слова, умный ввод данных
+- [Урок 1](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/quiz/lessons/lesson-1.md) - Вывод слова и проверка букв
+- [Урок 2](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/quiz/lessons/lesson-2.md) - Отгадывание букв, проверки
+- [Урок 3](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/quiz/lessons/lesson-3.md) - Словарь, рандом слов
