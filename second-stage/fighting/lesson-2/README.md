@@ -72,5 +72,29 @@ func move():
 
 ### Анимации персонажа
 
+Для начала создадим переменную, куда запишем состояние анимации персонажа на данный момент:
+
+```GDScript
+var action = 'none'
+```
+
+В текстовом виде укажем, что действие персонажа равно ничему, то есть `none`. А теперь объявим метод, который будет запускать анимации в зависимости от того, чему равна эта переменная:
+
+```GDScript
+func animation():
+	match action:
+		"punch":
+			$AnimationPlayer.play("punch")
+		"leg_punch":
+			$AnimationPlayer.play("leg_punch")
+		"recieve_damage":
+			$AnimationPlayer.play("recieve_damage")
+		"forward":
+			$AnimationPlayer.play("forward")
+		"backward":
+			$AnimationPlayer.play("backward")
+		"none":
+			$AnimationPlayer.play("idle")
+```
 
 
