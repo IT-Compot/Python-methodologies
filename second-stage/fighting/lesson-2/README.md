@@ -27,7 +27,7 @@
 
 ![5](https://github.com/user-attachments/assets/b03e830f-76b5-4dd9-b5b8-8cf12655f2f3)
 
-Оттуда мы уберём всё лишнее, связанное с прыжком и по итогу наш скрипт будет выглядет вот так:
+Оттуда мы уберём всё лишнее, связанное с прыжком и по итогу наш скрипт будет выглядеть вот так:
 
 ![image](https://github.com/user-attachments/assets/660aeaa6-7bf0-4b24-9e22-5a4ff6b67db0)
 
@@ -36,17 +36,41 @@
 ```GDScript
 extends CharacterBody3D
 
-
 const SPEED = 5.0
-
 
 func _physics_process(delta: float) -> void:
 
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-
 	move_and_slide()
-
 ```
+Создадим метод для старта анимации при запуске игры. Это будет метод, заранее существующий в движке, можно вспомнить как он называется:
+
+```GDScript
+func _ready() -> void:
+	$AnimationPlayer.play("idle")
+```
+
+Помимо запуска анимации мы хотим нажимать на кнопки и видеть как в результате персонаж перемещается вправо-влево.\
+Напишем для этого отдельный метод, на этот раз это будет созданный нами метод `move()`:
+
+```GDScript
+func move():
+	if Input.is_action_pressed("ui_right"):
+		velocity.z = -SPEED
+	elif Input.is_action_pressed("ui_left"):
+		velocity.z = SPEED
+	else:
+		velocity.z = 0
+```
+
+Не забудем вызвать его в функции `_physics_process(delta)`!\
+Как мы видим, скрипт по своей структуре абсолютно идентичен управлению вправо-влево в платформере.\
+\
+Отлично, теперь займёмся анимациями.
+
+### Анимации персонажа
+
+
 
