@@ -62,5 +62,17 @@
 
 ![image](https://github.com/user-attachments/assets/97f7b7bb-fa8f-4f8b-80a3-f0367ff4cdfb)
 
+Скачанные анимации перетаскиваем в заранее подготовленную папку для персонажа:
+
+![image](https://github.com/user-attachments/assets/db7fb40e-3409-4d8a-b60f-2936d6d908bb)
+
+Теперь попробуем открыть одну из них, давайте начнём с анимации где персонаж просто стоит, это `idle`:
+
+![image](https://github.com/user-attachments/assets/dfb20157-bb8a-4f86-acbc-9b38fbd9fa75)
+
+Отлично, анимация работает, теперь настроим персонажа. Нажмём на режиссёрскую хлопушку и нажмём `всё равно открыть`:
+
+
+
 
 
