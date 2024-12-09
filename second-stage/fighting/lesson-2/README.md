@@ -70,7 +70,7 @@ func move():
 \
 Отлично, теперь займёмся анимациями.
 
-### Анимации персонажа
+### Анимация ходьбы персонажа
 
 Для начала создадим переменную, куда запишем состояние анимации персонажа на данный момент:
 
@@ -110,6 +110,27 @@ func animation():
 Чтобы это исправить, прикрепим сигнал от узла `$AnimationPlayer`, который называется `_on_animation_finished(anim_name)`:
 
 ![6](https://github.com/user-attachments/assets/f2c28707-169f-4b11-bd1a-788ea0f6c00d)
+
+Напишем внутри появившегося метода следующие условия:
+
+```GDScript
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "punch":
+		action = "none"
+	elif anim_name == "leg_punch":
+		action = "none"
+	elif anim_name == "recieve_damage":
+		action = "none"
+	elif anim_name == "forward":
+		action = "none"
+```
+Теперь можно запустить игру и посмотреть на результат. Персонаж ходит и анимация ходьбы прекращается как только мы отожмём кнопку.
+
+### Анимация атаки персонажа
+
+Чтобы персонаж атаковал ему нужны соответствующие кнопки. Содадим их в настройках проекта:
+
+
 
 
 
