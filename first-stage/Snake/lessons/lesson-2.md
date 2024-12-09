@@ -72,3 +72,56 @@ func _on_timer_timeout():
 	tile_clear() # очистка тайлов
 	draw_snake() # отрисовка змейки
 ```
+
+## Управление змеей 
+
+Добавим управление.
+Добавим в конец скрипта новую встроенную функцию `_input(event)` (отвечает за обработку клавиш), она выполняется при нажатии любой клавиши или передвижении курсора в окне игры.
+Сделаем обработку нажатой клавиши (именно нажатия, а не удержания), например будем использовать клавиши со стрелками. Получаем проверку сделанную оператором `if`, условие входящее событие `Input` и примененная функция `is_action_just_pressed()` с обработкой каждой из четырёх кнопок: `ui_up`, `ui_right`, `ui_left`, `ui_down`.
+При выполнении условия (нажатия клавиши) будем менять направление движения, которое хроним в переменной `snake_direction`. Для направления вверх зададим `Vector2(0,-1)`. 
+Для изменения направления движения вверх. Код:
+
+```gdscript
+func _input(event):
+	if Input.is_action_just_pressed("ui_up"):
+		snake_direction = Vector2(0, -1)
+
+```
+
+При проверке змейка начинает реагировать на клавишу.
+Дописываем код для остальных клавиш. Код:
+
+```gdscript
+func _input(event):
+	if Input.is_action_just_pressed("ui_up"):
+		snake_direction = Vector2(0, -1)
+	if Input.is_action_just_pressed("ui_down"):
+		snake_direction = Vector2(0, 1)
+	if Input.is_action_just_pressed("ui_right"):
+		snake_direction = Vector2(1, 0)
+	if Input.is_action_just_pressed("ui_left"):
+		snake_direction = Vector2(-1, 0)
+```
+
+При проверке змейка начинает реагировать на все клавиши.
+Если заметили ошибку, что змея может начать двигаться в обратном направлении от текущего направления движения, то разбор решения указанной проблемы описан в дополнительных материалах.
+<details>
+	<summary>Открывай</summary>
+	
+	```gdscript
+	func _input(event):
+		if Input.is_action_just_pressed("ui_up"):
+			if not snake_direction == Vector2(0, 1):
+				snake_direction = Vector2(0, -1)
+		if Input.is_action_just_pressed("ui_down"):
+			if not snake_direction == Vector2(0, -1):
+				snake_direction = Vector2(0, 1)
+		if Input.is_action_just_pressed("ui_right"):
+			if not snake_direction == Vector2(-1, 0):
+				snake_direction = Vector2(1, 0)
+		if Input.is_action_just_pressed("ui_left"):
+			if not snake_direction == Vector2(1, 0):
+				snake_direction = Vector2(-1, 0)
+	```
+ 
+</details>
