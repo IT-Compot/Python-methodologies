@@ -36,4 +36,14 @@
 
 ![1](https://github.com/user-attachments/assets/5625a95a-bdce-4447-9223-075590e4c88a)
 
+Далее откроем импортированную карту следующим образом:
+
+![image](https://github.com/user-attachments/assets/4a04b348-63ab-4df7-80f7-0c375d43dd7a)
+
+И чтобы редактировать (добавлять коллизии), откроем её отдельной сценой в движке:
+
+![2](https://github.com/user-attachments/assets/22fc4543-87b8-4f06-9b7a-d643b1180a0f)
+
+
+
 
