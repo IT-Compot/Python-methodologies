@@ -22,4 +22,18 @@
 
 Как обычно создаём новый проект, называем его Файтинг:
 
+![image](https://github.com/user-attachments/assets/35baff73-2817-4b7d-b564-a5c4ce903664)
+
+Для проекта файтинга нам понадобится готовая карта, скачаем её на Scetchfab в формате glTF:
+
+![image](https://github.com/user-attachments/assets/a18d84e2-e9b8-40cf-8aec-86c5139d3639)
+
+После того, как карта скачается, открываем папку проекта в проводнике:
+
+![image](https://github.com/user-attachments/assets/cde03df1-8779-41f7-bd14-255ebb3251ab)
+
+Нам нужно два окна, создадим в папке проекта ещё одну папку, назовём её `map`, `карта`, и перенесём туда файлы из архиватора:
+
+![1](https://github.com/user-attachments/assets/5625a95a-bdce-4447-9223-075590e4c88a)
+
 
