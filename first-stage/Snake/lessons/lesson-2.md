@@ -108,20 +108,20 @@ func _input(event):
 <details>
 	<summary>Открывай</summary>
 	
-	```gdscript
-	func _input(event):
-		if Input.is_action_just_pressed("ui_up"):
-			if not snake_direction == Vector2(0, 1):
-				snake_direction = Vector2(0, -1)
-		if Input.is_action_just_pressed("ui_down"):
-			if not snake_direction == Vector2(0, -1):
-				snake_direction = Vector2(0, 1)
-		if Input.is_action_just_pressed("ui_right"):
-			if not snake_direction == Vector2(-1, 0):
-				snake_direction = Vector2(1, 0)
-		if Input.is_action_just_pressed("ui_left"):
-			if not snake_direction == Vector2(1, 0):
-				snake_direction = Vector2(-1, 0)
-	```
+```gdscript
+func _input(event):
+	if Input.is_action_just_pressed("ui_up"):
+		if not snake_direction == Vector2(0, 1):
+			snake_direction = Vector2(0, -1)
+	if Input.is_action_just_pressed("ui_down"):
+		if not snake_direction == Vector2(0, -1):
+			snake_direction = Vector2(0, 1)
+	if Input.is_action_just_pressed("ui_right"):
+		if not snake_direction == Vector2(-1, 0):
+			snake_direction = Vector2(1, 0)
+	if Input.is_action_just_pressed("ui_left"):
+		if not snake_direction == Vector2(1, 0):
+			snake_direction = Vector2(-1, 0)
+```
  
 </details>
