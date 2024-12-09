@@ -24,6 +24,8 @@
 
 ![image](https://github.com/user-attachments/assets/35baff73-2817-4b7d-b564-a5c4ce903664)
 
+### Создание и настройка карты
+
 Для проекта файтинга нам понадобится готовая карта, скачаем её на Scetchfab в формате glTF:
 
 ![image](https://github.com/user-attachments/assets/a18d84e2-e9b8-40cf-8aec-86c5139d3639)
@@ -44,6 +46,21 @@
 
 ![2](https://github.com/user-attachments/assets/22fc4543-87b8-4f06-9b7a-d643b1180a0f)
 
+Добавим в сцену карты `StaticBody3D` и прикрепим к ней 3 узла `CollisionShape3D` (для пола и двух стен, ограничивающих карту):
+
+![3](https://github.com/user-attachments/assets/bae5bf76-62fe-4723-8e7d-1b836d853615)
+
+Затем настроим их:
+
+![image](https://github.com/user-attachments/assets/0a1b0361-88f7-4b3e-bbe8-293caaa4f31f)
+
+Карта с коллизиями готова. Теперь позаботимся о персонаже.
+
+### Персонаж
+
+Персонажа мы скачаем из интернета, в этом нам поможет сайт `Mixamo`. Заходим и ищем подходящего персонажа.
+
+![image](https://github.com/user-attachments/assets/97f7b7bb-fa8f-4f8b-80a3-f0367ff4cdfb)
 
 
 
