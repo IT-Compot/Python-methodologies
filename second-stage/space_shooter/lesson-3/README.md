@@ -49,6 +49,47 @@ var current_roll : float = 0.0
 
 ![image](https://github.com/user-attachments/assets/17d81a6b-18af-40d0-b39c-0cbbfecf9bc7)
 
-Функция get_input() готова, теперь осталось только применить заданные значения `current_yaw`, `current_pitch` и `current_roll` в функции _physics_process(delta).
+Функция get_input() готова:
+
+```GDScript
+func get_input(delta):
+	if Input.is_action_pressed("increase_speed"):
+		current_speed = lerp(current_speed, max_speed, acceleration * delta)
+	if Input.is_action_pressed("reduce_speed"):
+		current_speed = lerp(current_speed, max_negative_speed, acceleration * delta)
+	if Input.is_action_pressed("reset"):
+		current_speed = lerp(current_speed, 0.0, acceleration * delta)
+		
+	current_yaw = lerp(current_yaw, Input.get_axis("ui_right", "ui_left"), input_response * delta)
+	current_pitch = lerp(current_pitch, Input.get_axis("ui_down", "ui_up"), input_response * delta)
+	current_roll = lerp(current_roll, Input.get_axis("roll_right", "roll_left"), input_response * delta)
+```
+
+Теперь осталось только применить заданные значения `current_yaw`, `current_pitch` и `current_roll` в функции _physics_process(delta). Переходим в неё:
+
+![image](https://github.com/user-attachments/assets/d82721cc-ae15-4b4a-9b84-aae7c034269d)
+
+Меняем `transform.basis`, применяем к нему метод rotated(), в аргументах видим подсказки, что он принимает как первый аргумент вектор 3D, который мы будем менять, а как второй - угол, на который поворачиваем. Зададим эти параметры:
+
+![image](https://github.com/user-attachments/assets/7127623c-4fd9-4331-a49d-71bb4af88c1b)
+
+Напишем то же самое и для остальных осей:
+
+![image](https://github.com/user-attachments/assets/dd3af4e5-fd3a-4544-a532-d8a887f0936a)
+
+Итоговый код функции _physics_process(delta) получился следующим:
+
+```GDScript
+func _physics_process(delta: float) -> void:
+	get_input(delta)
+	
+	transform.basis = transform.basis.rotated(transform.basis.y, current_yaw * yaw_speed * delta)
+	transform.basis = transform.basis.rotated(transform.basis.x, current_pitch * pitch_speed * delta)
+	transform.basis = transform.basis.rotated(transform.basis.z, current_roll * roll_speed * delta)
+	
+	velocity = -transform.basis.z * current_speed
+	move_and_collide(velocity * delta)
+```
+
 
 
