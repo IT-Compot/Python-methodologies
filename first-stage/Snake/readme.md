@@ -1,6 +1,6 @@
 # Змейка
 
-![image](https://github.com/user-attachments/assets/1f2c91b9-9c6f-40ca-a474-c3b6e8964d2c)
+![image](https://github.com/user-attachments/assets/0eff6bbf-f6a0-4d9b-ab4b-cebd67cc8d80)
 
 
 ## Цель проекта
