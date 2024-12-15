@@ -10,3 +10,6 @@
 - [Урок 1](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Snake/lessons/lesson-1.md) - Отрисовка карты, змейки и яблока через код
 - [Урок 2](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Snake/lessons/lesson-2.md) - Движение змейки
 - [Урок 3](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Snake/lessons/lesson-3.md) - Проверка съедания яблочка, рост змейки, ограничение перемещения у края карты
+
+## Ссылки
+[Ссылка на Яндекс.Диск](https://disk.yandex.ru/client/disk/Методика/Пайтон/1-я%20ступень/Змейка)
