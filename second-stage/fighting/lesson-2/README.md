@@ -155,6 +155,32 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 ![image](https://github.com/user-attachments/assets/3e755c05-7d02-420d-8332-fd311462c49d)
 
+Далее добавляем персонажу все нужные анимации:\
+\
+(процесс добавления)\
+\
+После чего получаем вот такой результат:
+
+![image](https://github.com/user-attachments/assets/0ae3c535-919e-4363-8849-d35142c56063)
+
+Теперь бота можно добавить на сцену:
+
+![21](https://github.com/user-attachments/assets/a40ae279-fa26-4f93-9325-70ee3146bead)
+
+Найдём его и поменяем размер, чтобы бот смотрелся адекватно:
+
+![image](https://github.com/user-attachments/assets/dd006892-0022-478a-a685-3bd22c1b197b)
+
+Игра запущена, всё выглядит корректно:
+
+![22](https://github.com/user-attachments/assets/a2ff877b-a0dd-465f-bcd1-b86b6b61cd30)
+
+Пора приступать к настройке бота и к написанию скрипта для него.
+
+
+
+
+
 
 
 
