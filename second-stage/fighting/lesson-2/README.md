@@ -139,5 +139,25 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 ![20](https://github.com/user-attachments/assets/63096d78-9575-4a15-9dbc-b3464119c66f)
 
+Повторим создание персонажа на примере бота, найдём анимацию `idle`, то есть, где персонаж стоит, откроем её как новую унаследованную сцену:
+
+![image](https://github.com/user-attachments/assets/93ad031d-0963-45a6-a672-f3b21da0a20d)
+
+На новой сцене открываем персонажа в редакторе:
+
+![image](https://github.com/user-attachments/assets/e279b6db-b7ae-4b27-b76a-15211f46613e)
+
+Выбираем `всё равно открыть` в появившемся окне:
+
+![image](https://github.com/user-attachments/assets/eab730e9-dccf-4282-a88f-faec09ca07ae)
+
+Изменяем тип персонажа на `CharacterBody3D`, переименовываем, добавляем `CollisionShape3D`:
+
+![image](https://github.com/user-attachments/assets/3e755c05-7d02-420d-8332-fd311462c49d)
+
+
+
+
+
 
 
