@@ -97,6 +97,23 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 ### Интеллект бота
 
+Чтобы бот участвовал в игре и адекватно реагировал на игрока мы добавим ему сенсоры `RayCast3D`:
+
+![23](https://github.com/user-attachments/assets/09f928ff-138c-4e4d-bb5d-8d80075f8e5e)
+
+Далее настроим ему сенсоры по атаке:
+
+![image](https://github.com/user-attachments/assets/6fbebe1f-4ef6-4004-ab5c-d9f8f61e129e)
+
+И другие сенсоры для отступления/настпуления, инициализации атаки:
+
+![image](https://github.com/user-attachments/assets/b1a0b2d8-d851-41fe-a753-7853346085f1)
+
+Далее перейдём в скрипт.
+
+
+
+
 
 
 
