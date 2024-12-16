@@ -16,9 +16,9 @@
 
 (план на занятие)
 
-### Скрипт бота 
+## Скрипт бота 
 
-#### База бота
+### База бота
 
 Приступаем к созданию логики для бота и написанию скрипта для него. Скрипт прикрепяем обязательно внутри самой сцены бота, а не к узлу бота на карте:
 
@@ -45,9 +45,57 @@
 
 ![image](https://github.com/user-attachments/assets/3aacddc5-a381-40a4-afd4-871849922bec)
 
+Получился следующий скрипт:
+
+```GDScript
+extends CharacterBody3D
+
+var action = 'none'
+
+const SPEED = 5.0
+
+func _ready() -> void:
+	$AnimationPlayer.play("idle")
+	
+	
+func _physics_process(delta: float) -> void:
+
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	animation()
+	move_and_slide()
+	
+func animation():
+	match action:
+		"punch":
+			$AnimationPlayer.play("punch")
+		"kick":
+			$AnimationPlayer.play("kick")
+		"recieve_damage":
+			$AnimationPlayer.play("recieve_damage")
+		"forward":
+			$AnimationPlayer.play("forward")
+		"none":
+			$AnimationPlayer.play("idle")
+		"die":
+			$AnimationPlayer.play("dying")
+			
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "punch":
+		action = "none"
+	elif anim_name == "kick":
+		action = "none"
+	elif anim_name == "recieve_damage":
+		action = "none"
+	elif anim_name == "forward":
+		action = "none"
+```
+
 Готово. База готова, теперь напишем логику его поведения.
 
-#### Интеллект бота
+### Интеллект бота
 
 
 
