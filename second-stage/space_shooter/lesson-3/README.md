@@ -128,6 +128,11 @@ func _physics_process(delta: float) -> void:
 
 
 
+После чего займёмся функцией _physics_process(delta) и научим камеру постоянно следовать за кораблём:
+
+
+
+
 
 
 
