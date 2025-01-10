@@ -111,8 +111,8 @@ print(random.randint(0, 100))  # Генерируем целое число от
 ```gdscript
 func new_apple():
 	randomize() # функция для рандомизации сида
-	var x = int(randi_range(0, field_size.x + 1)) # локальная переменная со случайным значением от 0 до размера игрового поля 
-	var y = int(randi_range(0, field_size.y + 1)) #
+	var x = int(randi_range(0, field_size.x)) # локальная переменная со случайным значением от 0 до размера игрового поля 
+	var y = int(randi_range(0, field_size.y)) #
 	apple_pos = Vector2(x, y) # Соберем сгенерированные координаты x и y в вектор apple_pos
 	print("x: ", x) # распечатаем x
 	print("y: ", y) # распечатаем y
