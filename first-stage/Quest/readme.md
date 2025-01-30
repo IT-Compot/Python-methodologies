@@ -21,5 +21,5 @@
 - Урок 3 - [Боты](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-3.md)
 - Урок 4 - [Квесты](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-4.md)
 - Урок 5 - [Интерфейс квестов](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-5.md)
-- Урок 6 - [Время](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-6.md)
+- Урок 6 - [Время](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/additional.md)
 - [Допы]()
