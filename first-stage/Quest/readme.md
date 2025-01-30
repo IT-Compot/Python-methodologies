@@ -16,7 +16,7 @@
 - Много работы с интерфейсом
 
 ## Список уроков:
-- Урок 1 - [Игрок](https://github.com/IT-Compot/Python-methodologies/blob/main/lessons/Quest/lessons/lesson-1.md)
+- Урок 1 - [Игрок](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-1.md)
 - Урок 2 - [Карта](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-2.md)
 - Урок 3 - [Боты](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-3.md)
 - Урок 4 - [Квесты](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-4.md)
