@@ -1,4 +1,4 @@
-# Второй год python GameDev
+# Первый год python GameDev
 
 ## Список проектов:
 1. [Платформер](https://github.com/IT-Compot/Python-methodologies/tree/main/first-stage/Platformer) -
