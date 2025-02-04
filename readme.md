@@ -7,6 +7,6 @@
 
 ## [Вторая ступень](https://github.com/IT-Compot/Python-methodologies/tree/main/second-stage)
 
-## [Третья ступень]()
+## [Третья ступень](https://github.com/IT-Compot/Python-methodologies/tree/main/third-stage)
 
 
