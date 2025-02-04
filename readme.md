@@ -6,7 +6,7 @@
 <img src="https://github.com/IT-Compot/Python-methodologies/blob/main/images/375029366-2c51f842-4fa3-413d-b3d3-b57db30545f6.gif" width="50%">
 
 ## [Первая ступень](https://github.com/IT-Compot/Python-methodologies/tree/main/first-stage)
-На первом году опбучения школа знакомит учеников с оновами программирования через призму разработки игр. 
+На первом году обучения школа знакомит учеников с оновами программирования через призму разработки игр. 
 Погружая их в основы индустрии и предоставляя возможность не только научиться программировать, но и реализовать свой творческий потенциал, а так же завести новые знакомства среди единомышленников.
 
 <img src="https://github.com/IT-Compot/Python-methodologies/blob/main/images/375054563-638da84d-067d-4f3c-a0ed-d21bba345926.gif" width="50%">
