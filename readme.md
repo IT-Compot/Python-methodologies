@@ -4,6 +4,7 @@
 Первые 2 урока курса Python GamDev. Основная цель которых - заинтересовать учеников.
 
 ![image](https://github.com/IT-Compot/Python-methodologies/blob/main/images/375029366-2c51f842-4fa3-413d-b3d3-b57db30545f6.gif)
+<img src="https://github.com/IT-Compot/Python-methodologies/blob/main/images/375029366-2c51f842-4fa3-413d-b3d3-b57db30545f6.gif">
 
 ## [Первая ступень](https://github.com/IT-Compot/Python-methodologies/tree/main/first-stage)
 На первом году опбучения школа знакомит учеников с оновами программирования через призму разработки игр. 
