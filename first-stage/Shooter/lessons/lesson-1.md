@@ -27,24 +27,39 @@
 
 <img src="https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/tilemaplayer_parameters.png">
 
-Теперь нужно добавить слои навигации и физический слой на тайлы. 
+Теперь нужно добавить слои навигации и физический слой на тайлы. По навигационным тайлам будут ходить боты, а физические тайлы нужны для столкновения.
+
+>[!Important]
+>Для физических слоев навигационный слой не делаем, иначе боты будут пытаться ходить по этим тайлам
 
 #### Физический слой:
 
 ![image](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/HowToMakeCollisions.gif)
 
+>[!Tip]
+>Нажми на галочку на гифке, чтобы включить её
+
 #### Навигационный слой:
 
 ![image](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/HowToMakeNavTile.gif)
 
-Теперь даем волю фантазии и рисуем карту по которой будет перемещаться игрок
+Теперь даем волю фантазии и рисуем карту по которой будет перемещаться игрок. Дайте ученикам порисовать их арену. Пусть попробуют спроектировать арену с учетом спавна врагов со всех сторон. Помогайте им
 
-### Создание игрока
+#### Пример арены:
 
-Для начала создадим CharacterBody2D и доабвим к нему следующие узлы:
-* AnimatedSprite2D
-* CollisionShape2D
-* Camera2D
+<img src="https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/ArenaExample.jpg">
+
+И напоследок можно добавить узел `ColorRect`, чтобы закрасить фон. Цвет подберите на свой вкус и расстяните за пределы экрана, чтобы не было видно серый фон
+
+# Создание игрока
+
+Для начала создадим `CharacterBody2D` и доабвим к нему следующие узлы:
+* `Sprite2D` - для персонажа
+* `CollisionShape2D` - для коллизий
+* `Camera2D` - камера
+* `Marker2D` - для создания точки вылета пуль
+* `Area2D` - для создания области получения урона и к ней крепим `CollisionShape2D` для создания коллизии области
+* `AudioStreamPlayer2D` - для создания звука выстрела
 
 Добавим анимацию игроку
 ![image](https://github.com/Sindikaty/byteschool/assets/158248099/c6f65643-f853-440c-89d2-f967d14b4dd1)
