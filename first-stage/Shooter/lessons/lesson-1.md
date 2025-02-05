@@ -61,6 +61,30 @@
 * `Area2D` - для создания области получения урона и к ней крепим `CollisionShape2D` для создания коллизии области
 * `AudioStreamPlayer2D` - для создания звука выстрела
 
+>[!Important]
+>Переименовывайте узлы! Так ученикам будет понятнее с чем они работают и проще запомнить. Коллизии можно не переименовывать (их можно отследить по контексту того к кому они подключены, но при желании тоже можете), а вот `Marker2D` можно переименовать в `ShotPoint`, `Area2D` в `HurtBox`, `AudioStreamPlayer2D` в `ShotAudio2D` или что-то вроде такого.
+
+Добавим сразу все необходимые узлы, а настройкой займемся по порядку.
+
+В `Sprite2D` в параметр `Texture` добавляем нужный спрайт игрока.  
+
+Получится что-то вроде такого:
+
+<img src="https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/player_screen_shot.png">
+
+И прокидываем все уже известные параметры для коллизий. 
+
+- Создаем круглую коллизию для `CollisionShape2D` самого игрока
+- Такую же круглую коллизию для `CollisionShape2D`, которая внутри `Area2D`
+- Ставим `Marker2D` правее игрока
+
+И получается что-то вроде такого:
+
+<img src="https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/player_with_collisions.jpg">
+
+>[!Tip]
+>Для удобства можете поменять цвета для коллизий.
+
 Добавим анимацию игроку
 ![image](https://github.com/Sindikaty/byteschool/assets/158248099/c6f65643-f853-440c-89d2-f967d14b4dd1)
 
