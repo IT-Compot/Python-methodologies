@@ -6,21 +6,36 @@
 
 # Создание карты
 
-Здесь всё, как и прежде - карту делаем через `TileMapLayer`
+Здесь всё, как и прежде - карту делаем через `TileMapLayer` :shipit:
 
-Для удобства дальнейшего создания игрока, создадим карту с физическими слоями, но пока что без слоев навигации для ботов. Для этого создаем `TileMap`. В свойствах `TileMap` создаем `TileSet` после чего у нас появится сетка игрового поля. <br>
+Узлы для создания карты:
+- `TileMapLayer` - основная карта
+- `ColorRect` - узел, чтобы закрасить серый фон
+
+Создадим карту с физическими слоямии и сразу же со слоями навигации для ботов. Для этого создаем `TileMapLayer`. В свойствах `TileMap` создаем `TileSet` после чего у нас появится сетка игрового поля. <br>
+Значения у `TileSize` выставляем: `x: 32`, `y: 32` <br>
+
+
 Добавляем наш набор тайлов, он должен выглядить примерно так:
 
-![image](https://github.com/Sindikaty/byteschool/assets/158248099/ecf9a4ff-8dc5-4ae1-939a-4c10b3b9b515)
+![image](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/tile_pack.jpg)
 
-Для создания физического слоя нажимаем по `TileSet` и в его свойстве `Physics Layers` добавляем новый физический слой
-![image](https://github.com/Sindikaty/byteschool/assets/158248099/2f678e59-d97c-421b-ad38-00050d068b6d)
+>[!Tip]
+>Если используешь этот же ассет пак, то проще будет сделать стенкой - белые тайлы и полом - черные тайлы
 
-Возвращаемя в набору тайлов, заходим в рисовать и выбираем там `Физический слов 0`
-![image](https://github.com/Sindikaty/byteschool/assets/158248099/c109ea79-8b69-4f0f-94b7-b92e29e7d3b1)
+Теперь создаем `Physics Layer` и `Navigation Layer`. Необходимо выбрать `TileMapLayer` и в параметрах открыть соответствующие вкладки. Подробнее на скрине:
 
-Осталось лишь выделить те ячейки которые мы хотели бы сделать физическими
-![image](https://github.com/Sindikaty/byteschool/assets/158248099/8e626731-e2ee-4e05-addb-c81260a2d45d)
+<img src="https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/tilemaplayer_parameters.png">
+
+Теперь нужно добавить слои навигации и физический слой на тайлы. 
+
+#### Физический слой:
+
+![image](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/HowToMakeCollisions.gif)
+
+#### Навигационный слой:
+
+![image](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/HowToMakeNavTile.gif)
 
 Теперь даем волю фантазии и рисуем карту по которой будет перемещаться игрок
 
