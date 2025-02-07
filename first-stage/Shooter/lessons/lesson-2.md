@@ -27,7 +27,7 @@
 
 <img src="https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/mesh_screenshot.jpg">
 
-Добавляем форму коллизии и настраиваем область `VisibleOnScreenNotifier2D` и получим что-то вроде [этого](bullet_pic)
+Добавляем форму коллизии и настраиваем область `VisibleOnScreenNotifier2D` и получим что-то вроде [этого](#bullet_pic)
 
 
 
