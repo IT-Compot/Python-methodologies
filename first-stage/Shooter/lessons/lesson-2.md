@@ -5,7 +5,7 @@
 - Добавление бота
 
 ### Создание пули
-![image](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/bullet_pic.jpg)
+<img src="https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/bullet_pic.jpg" id="bullet_pic">
 
 Создаем новую сцену и в качестве корневого узла используем `Area2D`.
 
@@ -26,6 +26,9 @@
 Пример на скрине ниже:
 
 <img src="https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/mesh_screenshot.jpg">
+
+Добавляем форму коллизии и настраиваем область `VisibleOnScreenNotifier2D` и получим что-то вроде [этого](bullet_pic)
+
 
 
 #### Перейдем к скрипту
