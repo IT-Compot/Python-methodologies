@@ -222,11 +222,27 @@ func _on_body_entered(body):
 
 В коде напишем только это:
 ```gdscript
+# explosion.gd
 func _ready():
 	emitting = true # при загрузке сцены сразу же запустится "выпуск" частиц
 ```
 
+Теперь вернемся к скрипту врага:
+
+```
+func taking_damage():
+	hp -= 10
+	if hp <= 0:
+		queue_free()
+		var explosion = preload("res://Scenes/VFX/explosion.tscn").instantiate()
+		# создаем переменную в которую положим предзагруженную сцену и сразу же создаем экземпляр
+		get_parent().add_child(explosion) # добавляем взрыв
+		explosion.global_position = global_position # синхронизируем позицию взрыва и позицию бота
+```
+
 </details>
+
+# Итог
 
 
 
