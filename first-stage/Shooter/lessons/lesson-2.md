@@ -2,7 +2,7 @@
 
 ## Краткое содержание
 - Создание пули
-- Добавление бота
+
 
 ### Создание пули
 <img src="https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/bullet_pic.jpg" id="bullet_pic">
