@@ -220,6 +220,12 @@ func _on_body_entered(body):
 | **Scale → Scale Amount Curve**         | График изменения размера частиц. В начале по Y=1, в конце по X=1.          | Кривая масштабирования (можно настроить через Curve) | <img src='https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/curve_particles.png'> |
 
 
+В коде напишем только это:
+```gdscript
+func _ready():
+	emitting = true # при загрузке сцены сразу же запустится "выпуск" частиц
+```
+
 </details>
 
 
