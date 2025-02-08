@@ -1,12 +1,61 @@
-## Урок 3
+# Урок 3
 
-### Создание слоумо
+## Краткое содержание
+- Создание врагов
+- Спавн врагов
 
-На этом уроке начнем с создания слоумо. Для него нам понадобится глобальный скрипт который мы создали на прошлом уроке.
-Добавим переменную булевого (логического) типа в скрипте
+## Создание врагов
 
+Сегодня будем делать врагов
+
+<img src="https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/enemy_shooter.png">
+
+Состоять враг будет из следующих узлов:
+
+- `CharacterBody2D` - базовый узел для создания игрока и `NPC`, переименуйте его в `Enemy` или `Bot`
+- `Sprite2D` - узел для спрайтов (так же подойдет `AnimatedSprite2D`, если у вас есть несколько анимаций)
+- `CollisionShape2D` - узел для коллизий
+- `NavigationAgent2D` - узел для навигации. Если есть навигационная карта, то объект сможет по ней перемещаться
+- `Timer` - нужен будет для обновления маршрута до игрока
+
+Загружаем необходимый спрайт(ы) и создаем коллизии. `Timer` пока оставляем, его настроим чуть позднее.
+
+### Переходим к скрипту
+
+Полный скрипт:
 ```gdscript
-var slowmo : bool = false
+extends CharacterBody2D
+
+const SPEED = 60
+@onready var player = get_node("/root/Game/Player")
+var hp = 20
+@onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
+
+
+func _physics_process(_delta: float) -> void:
+	var next_path_pos := nav_agent.get_next_path_position()
+	var direction := global_position.direction_to(next_path_pos)
+	velocity = direction * SPEED
+	look_at(player.global_position)
+	move_and_slide()
+
+
+func makepath():
+	nav_agent.target_position = player.global_position
+
+
+func taking_damage():
+	hp -= 10
+	if hp <= 0:
+		queue_free()
+		const EXPLOSION_SCENE = preload("res://Scenes/VFX/explosion.tscn")
+		var explosion = EXPLOSION_SCENE.instantiate()
+		get_parent().add_child(explosion)
+		explosion.global_position = global_position
+
+
+func _on_timer_timeout():
+	makepath()
 ```
 
 Создавать функцию замедления мы будем у игрока, поэтому возвращаемся в его скрипт и создаем там еще 2 переменные.
