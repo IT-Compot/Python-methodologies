@@ -199,9 +199,9 @@ func _on_body_entered(body):
 
  ![AbsoluteCinemaExplosion](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/AbsoluteCinemaExplosion.gif)
 
-Создаем новую сцену с корневым узлом `CPUParticles2D` и переименуем её в `Explosion`.
+Создаем новую сцену с корневым узлом `CPUParticles2D` и переименуем её в `Explosion`. Так же добавим узел `AudioStreamPlayer2D` и можете его переименовать в `ExplosionSound` или что-то вроде такого. Добавляете звук взрыва и включаете параметр `Autostart`.
 
-Теперь нас ждет настройка этого узла.
+Теперь нас ждет настройка узла `Explosion`.
 
 Какие параметры задействованы:
 
@@ -221,6 +221,7 @@ func _on_body_entered(body):
 
 
 В коде напишем только это:
+
 ```gdscript
 # explosion.gd
 func _ready():
@@ -229,7 +230,7 @@ func _ready():
 
 Теперь вернемся к скрипту врага:
 
-```
+```gdscript
 func taking_damage():
 	hp -= 10
 	if hp <= 0:
