@@ -192,5 +192,35 @@ func _on_body_entered(body):
 
 Этот пункт был на [первом уроке](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/lessons/lesson-1.md), если вдруг не сделали - сделайте.
 
+<details>
+	<summary>Допы</summary>
+
+ ### Взрыв партиклов
+
+ ![AbsoluteCinemaExplosion](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/AbsoluteCinemaExplosion.gif)
+
+Создаем новую сцену с корневым узлом `CPUParticles2D` и переименуем её в `Explosion`.
+
+Теперь нас ждет настройка этого узла.
+
+Какие параметры задействованы:
+
+| **Параметр**                          | **Описание**                                                                 | **Возможные значения** | **Ваши значения** |
+|----------------------------------------|-----------------------------------------------------------------------------|------------------------|------------------|
+| **Amount**                             | Количество частиц, создаваемых системой.                                    | Целое число (например, 100) | `50` |
+| **Emitting**                           | Включает или выключает эмиссию частиц.                                      | `true` (включено) / `false` (выключено) | `false` |
+| **Lifetime**                           | Время жизни каждой частицы в секундах.                                      | Десятичное число (например, 2.0) | `1` |
+| **One Shot**                           | Частицы испускаются один раз, а не бесконечно.                             | `true` (однократный запуск) / `false` (повторяющийся эффект) | `true` |
+| **Explosiveness**                      | Определяет, как быстро частицы испускаются. 1.0 — все сразу (взрывом).      | 0.0 (равномерно) – 1.0 (мгновенный выброс) | `1` |
+| **Drawing → Texture**                  | Текстура, используемая для рендеринга частиц.                              | Путь к текстуре (например, `res://textures/particle.png`) | `res://Resources/Sprites/1bit topdown sprites/fx.png` |
+| **Emission Shape → Shape → Sphere**    | Форма зоны, из которой появляются частицы. В данном случае – сфера.        | `Sphere`, `Box`, `Point`, `Ring`, `Cylinder` | `Sphere` |
+| **Direction → Spread**                 | Угол разброса частиц в градусах. 180° означает равномерное распределение.  | 0° – 180° | `180` |
+| **Gravity X: 0, Y: 0**                 | Устанавливает гравитацию, влияющую на частицы. В данном случае – отключена.| Любые числовые значения (например, X: 0, Y: 98 для стандартной гравитации) | `X: 0, Y: 0` |
+| **Initial Velocity: Velocity min, max** | Минимальная и максимальная начальная скорость частиц. | Числовые значения (например, Min: 50, Max: 50) | `Velocity min: 50, Velocity max: 50` |
+| **Scale → Scale Amount Curve**         | График изменения размера частиц. В начале по Y=1, в конце по X=1.          | Кривая масштабирования (можно настроить через Curve) | <img src='https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/curve_particles.png'> |
+
+
+</details>
+
 
 
