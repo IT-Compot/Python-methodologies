@@ -195,7 +195,7 @@ func _on_body_entered(body):
 <details>
 	<summary>Допы</summary>
 
- ### Взрыв партиклов
+ ### Партиклы взрыва
 
  ![AbsoluteCinemaExplosion](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/AbsoluteCinemaExplosion.gif)
 
