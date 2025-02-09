@@ -120,3 +120,19 @@ func _on_timer_timeout():
 
 Это обработчик сигнала от `Timer`.
 Когда таймер завершает отсчёт, вызывается `spawn_zombie()`, и появляется новый зомби.
+
+## Урон по игроку
+
+Усовершенствуем скрипт игрока, благо сейчас есть повод. Нам надо сделать получение урона игроком.
+
+Сразу же скрипт, а потом разберем
+
+```gdscript
+func take_damage(delta):
+	const DAMAGE_RATE = 1
+	var overlapping_zombies = %HurtBox.get_overlapping_bodies()
+	if overlapping_zombies.size() > 0:
+		hp -= DAMAGE_RATE * overlapping_zombies.size() * delta
+		if hp <= 0.0:
+			emit_signal("game_over")
+```
