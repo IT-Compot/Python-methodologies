@@ -35,7 +35,11 @@ func _on_game_timer_timeout():
 ## Интерфейсы
 ### Интерфейс игрока
 
-Сделаем активное отображение `HP` у игрока. Сделаем мы это при помощи `AnimatedSprite2D`. Создаем `CanvasLayer` в главной сцене и можем его переименовать в `HUD`.
+Сделаем активное отображение `HP` у игрока. Сделаем мы это при помощи `AnimatedSprite2D`. Создаем `CanvasLayer` в главной сцене и можем его переименовать в `HUD` и внутри этого узла создаем узел `Control`, а уже в него добавляем `AnimatedSprite2D`.
+
+Должно быть что-то вроде этого:
+
+<img src='https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/ui_tree_screenshot.jpg'>
 
 >[!Note]
 >`HUD` (Heads-Up Display) — это элемент пользовательского интерфейса в играх, который отображает важную информацию для игрока без прерывания игрового процесса.
@@ -46,3 +50,10 @@ func _on_game_timer_timeout():
 >- Карта или мини-карта
 >- Оружие и боеприпасы
 >- Таймер или индикаторы миссии
+
+Поработаем с `AnimatedSprite2D`.
+
+- Создаем в параметре `Sprite Frames` новый `Sprite Frame`
+- Выставляем спрайты примерно, как на скрине ниже (у игрока должно быть `hp` столько же, сколько кадров в `AnimatedSprite2D`) 
+
+<img src='https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/UI_player_screenshot.jpg'>
