@@ -108,12 +108,14 @@
 
 Для дорожек нам нужен еще один `TileMapLayer` со следующими параметрами
 
-![image](https://github.com/Sindikaty/byteschool/assets/158248099/22f8813e-a7be-4423-8157-4ec4c1913f28)
+![image](https://github.com/user-attachments/assets/d3d4e602-623a-47c5-849c-98983fb34a14)
+
 
 
 Добавим тайл дорожки и зададим его размер примерно в такие значение, их можно подобрать по желанию ученика
 
-![image](https://github.com/Sindikaty/byteschool/assets/158248099/f425f890-51a8-4de3-9afb-56f9bf78cfca)
+![image](https://github.com/user-attachments/assets/c17808b9-de7c-4bdd-978a-e1a137cf30b5)
+
 
 В результате мы получим примерно следующее:
 
