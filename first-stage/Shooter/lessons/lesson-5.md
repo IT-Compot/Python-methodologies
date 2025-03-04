@@ -51,12 +51,15 @@ func _on_game_timer_timeout():
 >- Оружие и боеприпасы
 >- Таймер или индикаторы миссии
 
-Поработаем с `AnimatedSprite2D`.
+#### Поработаем с `TextureProgressBar`.
 
-- Создаем в параметре `Sprite Frames` новый `Sprite Frame`
-- Выставляем спрайты примерно, как на скрине ниже (у игрока должно быть `hp` столько же, сколько кадров в `AnimatedSprite2D`) 
+<img src='https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/TextureProgressBar.png'>
 
-<img src='https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/UI_player_screenshot.jpg'>
+- Загружаем в параметры `Under` и `Over` необходимые текстуры
+	- в `Under` мы загружаем задний фон прогресс бара
+ 	- в `Over` соответсвенно текстуру заполненного прогресс бара 
+- Параметр `Max Value` должен быть равен максимальному (изначальному) количеству `hp` игрока (если ученик захочет, чтобы у игрока было 100 `hp`, то `Max Value` должен быть равен 100) 
+
 
 ### Скрипт интерфейса
 
@@ -79,7 +82,7 @@ extends Control
 
 
 func _process(delta):
-	$AnimatedSprite2D.frame = %Player.hp # кадры анимированного спрайта равен количеству хп игрока
+	$TextureProgressBar.value = %Player.hp # value прогресс бара равен количеству хп игрока
 ```
 
 И не забываем поправить количество `hp` у игрока.
@@ -87,9 +90,8 @@ func _process(delta):
 ```gdscript
 # player.gd
 
-var hp = 8 # меняем на нужное количество
+var hp = 8 # меняем на нужное количество, например 100
 ```
 
->[!Warning]
-> Если кадров с `HP` 8, то и у игрока переменная `HP` должна быть равна 8
+
 
