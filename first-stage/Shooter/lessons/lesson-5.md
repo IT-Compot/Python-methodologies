@@ -94,5 +94,46 @@ func _process(delta):
 var hp = 8 # меняем на нужное количество, например 100
 ```
 
+## Поражение игрока
+
+На самом деле мы помимо интерфейса еще перепишем код игрока. Нам теперь необходимо, чтобы игрок мог во время проигрыша вызывать интерфейс проигрыша, где будет написано "Ты проиграл" или что-то похожее.
+
+Переделаем скрипт игрока мы таким образом:
+
+```gdscript
+signal game_over
+var is_dead := false # вводим новую переменную 
 
 
+func _physics_process(delta):
+	if not is_dead: # если игрок не умер, то...
+		handle_movement() # вызываем метод обработки движения
+		handle_actions() # вызываем метод обработки действий
+		take_damage(delta) # вызываем метод получения урона
+	
+	move_and_slide()
+
+
+func handle_movement(): # всю логику мы перенесли сюда
+	var direction := Input.get_vector("left", "right", "up", "down")
+	look_at(get_global_mouse_position())
+	if direction != Vector2.ZERO:
+		velocity = direction * SPEED
+	else:
+		velocity = Vector2.ZERO
+
+
+func handle_actions() -> void: # и сюда
+	if Input.is_action_pressed("LMB"):
+		shoot()
+
+
+func take_damage(delta):
+	const DAMAGE_RATE = 1
+	var overlapping_zombies = %HurtBox.get_overlapping_bodies()
+	if overlapping_zombies.size() > 0:
+		hp -= DAMAGE_RATE * overlapping_zombies.size() * delta
+		if hp <= 0.0:
+			is_dead = true # переключаем её, когда игрок проигрывает
+			emit_signal("game_over")
+```
