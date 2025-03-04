@@ -137,3 +137,18 @@ func take_damage(delta):
 			is_dead = true # переключаем её, когда игрок проигрывает
 			emit_signal("game_over")
 ```
+
+### Работаем с узлами
+
+- Создаем узел `Control` и называем его `GameOverUI`. В нем будет `Label` в который мы помещаем текст "Ты проиграл!".
+- Крепим от игрока сигнал `game_over`, который находится во вкладке `Узел`, к корневому узлу сцены `Game` (там где у нас уровень).
+- Прописываем скрипт для отображения интерфейса
+
+<img src='https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/GameOverUIView.png'>
+
+#### Скрипт узла `Game`
+
+```gdscript
+func _on_player_game_over():
+	$CanvasLayer/GameOverUI.visible = true
+```
