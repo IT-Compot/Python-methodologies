@@ -146,6 +146,10 @@ func take_damage(delta):
 
 <img src='https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/GameOverUIView.png'>
 
+>[!Tip]
+>Для чистоты проекта или если у вас не "изики", то можете создать все элементы интерфейса отдельной сценой. Для `GameOverUI`, `WinUI` и т.д. сделайте отдельные сцены и добавьте их в `CanvasLayer` главной сцены.
+
+
 #### Скрипт узла `Game`
 
 ```gdscript
