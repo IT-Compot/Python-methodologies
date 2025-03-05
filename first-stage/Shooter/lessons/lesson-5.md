@@ -152,3 +152,47 @@ func take_damage(delta):
 func _on_player_game_over():
 	$CanvasLayer/GameOverUI.visible = true
 ```
+## Меню
+
+Теперь поработаем над кнопкой паузы. Вызываться она будет на уже классическую клавишу <kbd>ESC</kbd>. Идея простая:
+- Создаем новую сцену, корнем делаем `Control`, можно назвать `PauseMenu`
+- Далее создаем `VBoxConatiner` и ставим его по центру
+<img src='https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Shooter/images/screenshot_center.jpg'>
+- Внутрь `VBoxConatiner` добавляем два `Button`, назвать их можно `ContinueButton` и `ExitButton`
+- Добавляем скрипт к `PauseMenu` и туда же присоединим сигналы `pressed` от кнопок
+
+Теперь посмотрим на скрипт:
+
+```gdscript
+extends Control
+
+var is_paused := false # переменная, которая проверяет на паузе ли игра
+
+
+func _ready():
+	self.visible = false
+
+
+func _input(event):
+	if Input.is_action_just_pressed("ui_cancel"):
+		is_paused = !is_paused
+		
+	#printerr("Is paused: ", is_paused)
+	
+	if is_paused:
+		self.visible = true
+		get_tree().paused = true
+	else:
+		get_tree().paused = false
+		self.visible = false
+		
+
+
+func _on_continue_button_pressed():
+	is_paused = false
+	get_tree().paused = false
+	
+
+func _on_exit_button_pressed():
+	get_tree().quit()
+```
