@@ -291,6 +291,9 @@ func _on_option_2_pressed():
 
 ![image](https://github.com/user-attachments/assets/64375633-f550-47b2-b736-56a9a1d57753)
 
+![image](https://github.com/user-attachments/assets/ebe4abf0-8ed2-49f5-b054-8af773b1a013)
+
+
 Теперь дело за малым. Добавляете NPC в узел `Bots` и ставите где-нибудь на карте.
 
 ![image](https://github.com/user-attachments/assets/8a613b89-a3a2-46b4-b8cb-3e114240add2)
