@@ -1,5 +1,7 @@
 # Резюме курсов по Python
 
+---
+
 ## [Вводный модуль](https://github.com/IT-Compot/Python-methodologies/tree/main/first-stage/Introduction%20module)
 Первые 2 урока курса Python GamDev. Основная цель которых - заинтересовать учеников.
 
@@ -20,5 +22,3 @@
 Третья сутпень отходит от геймдева, давая ученикам возможность взглянуть на программирование шире. На крурсе учеников ждёт работа с чистым python, работа с графиками, алгоритмами, чат ботами и нейростеями. 
 
 <img src="https://github.com/IT-Compot/Python-methodologies/blob/main/images/3.gif" width="50%">
-
-
