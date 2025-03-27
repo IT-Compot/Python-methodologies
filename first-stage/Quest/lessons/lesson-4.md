@@ -132,6 +132,20 @@ func _on_body_exited(body):
 >[!Tip]
 >Покажите и расскажите ученикам как работают параметры у партиклов. Дайте им творческую свободу, а если ученики не могут особо ничего придумать - дайте им готовое решение, которое есть выше
 
+### "Рецепт" этих партиклов
+
+| **Параметр**            | **Значение** |
+|-------------------------|-------------|
+| **Amount**             | `30` |
+| **Speed Scale**           | `0.2` |
+| **Shape**           | `Sphere` |
+| **Sphere Radius**         | `25 px` |
+| **Spread**      | 145 |
+| **Gravity**         | `x: 0`, `y: 0` |
+| **Initial Velocity**          | `Velocity Min: 13`, `Velocity Max: 13` |
+| **Scale Amount Curve**   | <img src="https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/img/ParticlesCurve.jpg"> |
+| **Color Ramp**   | <img src="https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/img/ColorRampGradient.jpg"> |
+
 <details>
 	<summary>Вот небольшая таблица по параметрам **партиклов**</summary>
  
