@@ -93,6 +93,13 @@ func _on_body_exited(body):
 
 <img src="https://docs.godotengine.org/en/3.2/_images/paranim20.gif">
 
+Предлагаем сделать такие вот частицы, которые будут парить вокруг персонажа:
+
+<img src="https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/img/Particles2DGif.gif">
+
+>[!Tip]
+>Покажите и расскажите ученикам как работают параметры у партиклов. Дайте им творческую свободу, а если ученики не могут особо ничего придумать - дайте им готовое решение, которое есть выше
+
 Вот небольшая таблица по параметрам **партиклов**:
 
 #### Параметры `CPUParticles2D` в `Godot Engine`
