@@ -113,36 +113,6 @@ func _process(delta):
 		quest_name.text = quest_list # переписываем текст
 ```
 
-
-
-## Создание предмета для квеста
-
-![image](https://github.com/user-attachments/assets/764a76e6-dec3-498c-a976-8036368d147f)
-
-> Это может быть любой другой предмет. Зависит от истории ученика.
-
-Из чего состоит подбираемый предмет:
-![image](https://github.com/user-attachments/assets/fe740b3e-772c-4234-83ae-1f79e4b8575d)
-
-Скрипт достаточно простой:
-
-```gdscript
-func _on_body_entered(body): # сигнал, который исходит от самого узла
-	if body.name == "Player": # проверка имени игрока
-		body.item_collected() # вызов метода у тела
-		queue_free() # удаление предмета
-```
-Сигнал `body_entered` прикрепляете к самому скрипту предмета.
-
-Метод `item_collected()` вызывается у `body`, а этот самый `body` в нашем случае - Игрок. Поэтому в скрипте игрока создаете метод `item_collected()` и прописываете следующее:
-
-```gdscript
-# player.gd
-func item_collected():
-	%UI.quest.append("Имя добавляемого квеста")
-	%UI.quest.erase("Имя стираемого квеста")
-```
-
 ## Интерфейс квестгивера
 
 Далее мы добавляем узел интерфейса (`Control`), переименовали его в `QuestGiverInterface` или что-то похожее и задали ему уникальное имя. После - прикрепляем скрипт.
@@ -328,6 +298,36 @@ var my_array = [15, 5, 10]
 my_array.sort()  # Теперь my_array = [5, 10, 15]
 ```
 </details>
+
+## Создание предмета для квеста
+
+![image](https://github.com/user-attachments/assets/764a76e6-dec3-498c-a976-8036368d147f)
+
+> Это может быть любой другой предмет. Зависит от истории ученика.
+
+Из чего состоит подбираемый предмет:
+![image](https://github.com/user-attachments/assets/fe740b3e-772c-4234-83ae-1f79e4b8575d)
+
+Скрипт достаточно простой:
+
+```gdscript
+func _on_body_entered(body): # сигнал, который исходит от самого узла
+	if body.name == "Player": # проверка имени игрока
+		body.item_collected() # вызов метода у тела
+		queue_free() # удаление предмета
+```
+Сигнал `body_entered` прикрепляете к самому скрипту предмета.
+
+Метод `item_collected()` вызывается у `body`, а этот самый `body` в нашем случае - Игрок. Поэтому в скрипте игрока создаете метод `item_collected()` и прописываете следующее:
+
+```gdscript
+# player.gd
+func item_collected():
+	%UI.quest.append("Имя добавляемого квеста")
+	%UI.quest.erase("Имя стираемого квеста")
+```
+
+
 
 
 ### Создание узла для предметов
