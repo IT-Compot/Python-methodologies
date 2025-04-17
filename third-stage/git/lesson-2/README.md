@@ -85,6 +85,7 @@ Pull origin в контексте GitHub — это команда, котора
 
 Выбираем с каким репозиторием будем сливать (ваше имя git) и кого (ветка test)
 
+![alt text](images/5.png)
 
 Создаем pull requets и делаем mergre
 
