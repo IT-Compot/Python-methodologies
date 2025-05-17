@@ -9,8 +9,7 @@
 
 Создайте и прикрепите `Node2D` к родительскому узлу. Переименуйте его в что-то вроде `Map`.
 
-![image](https://github.com/user-attachments/assets/05d16451-891d-4ac4-9738-566bf9b4600e)
-
+![tilemaplayer](https://github.com/user-attachments/assets/0f232549-0934-4a81-be09-bb8cbc5ecf38)
 
 ### Создание базового игрового поля
 
