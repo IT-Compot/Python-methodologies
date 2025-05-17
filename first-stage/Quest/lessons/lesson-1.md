@@ -154,20 +154,20 @@ func _physics_process(delta: float) -> void:
 <details>
 	<summary>Вариант движения персонажа для хардов: </summary>
 	
-	```gdscript
-		func _physics_process(delta: float) -> void:
-			velocity = Vector2.ZERO 
+```gdscript
+	func _physics_process(delta: float) -> void:
+		velocity = Vector2.ZERO 
+	
+		var direction = Input.get_vector("left", "right", "up", "down") # В случае с методом get_vector() значения будут нормализованны автоматически.
+	
+		if direction.x > 0:
+			$AnimatedSprite2D.flip_h = false
+		else:
+			$AnimatedSprite2D.flip_h = true
 		
-			var direction = Input.get_vector("left", "right", "up", "down") # В случае с методом get_vector() значения будут нормализованны автоматически.
-		
-			if direction.x > 0:
-				$AnimatedSprite2D.flip_h = false
-			else:
-				$AnimatedSprite2D.flip_h = true
-			
-			velocity = direction * speed
-			move_and_slide()
-	```
+		velocity = direction * speed
+		move_and_slide()
+```
 </details>
 
 #### Анимация движения
