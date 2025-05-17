@@ -45,7 +45,7 @@ func _on_option_1_pressed() -> void:
 
 
 func _on_quit_dialog_pressed() -> void:
-	$"../..".in_area = false
+	in_area = false
 
 func _process(delta: float) -> void:
 	if in_area:
