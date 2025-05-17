@@ -105,7 +105,7 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.normalized() * speed # Здесь метод normalized() нужен чтобы при движении по диагонали векторные скорости не складывались. В 2-х словах, значение каждого velocity всегда будет равно либо 0, либо 1/-1.
 	move_and_slide()
 ```
-
+>[!NOTE]
 >Ссылки для подробного изучения работы метода [`move_and_slide()`](https://docs.godotengine.org/en/4.3/classes/class_characterbody2d.html#class-characterbody2d-method-move-and-slide)
 
 Отлично! Осталась одна проблема - персонаж не останавливается. Сперва спрашиваем ребят, затем объясняем.
