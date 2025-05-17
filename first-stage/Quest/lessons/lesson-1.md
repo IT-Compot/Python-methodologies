@@ -29,7 +29,7 @@
 
 ![image](https://github.com/user-attachments/assets/55d6db3d-7495-47d0-ab71-55b018f4780a)
 
-Находите нужный спрайт-лист и настраиваете количество линий и выбираете необходимые кадры:
+Находите нужный спрайт-лист, настраиваете количество линий и выбираете необходимые кадры:
 
 ![image](https://github.com/user-attachments/assets/ff4f2ce0-a57b-406b-a62c-bbf681c22c61)
 
@@ -50,69 +50,99 @@
 ![image](https://github.com/user-attachments/assets/a262841c-b898-4e4e-b2df-6cbda0b20d64)
 
 >[!Tip]
->Помимо стандартных параметров вы можете использовать `Skew` и `Rotation`, в разделе `Transform`, у узла `CollisionShape2D`. Так вы сомжете придать коллизии форму как у шахатной фигуры.
+>Помимо стандартных параметров вы можете использовать `Skew` и `Rotation`, в разделе `Transform`, у узла `CollisionShape2D`. Так вы сможете придать коллизии форму как у шахатной фигуры.
 
 #### Камера
 Про камеру нужно поговорить чуть-чуть подробнее, если вы раньше особо не трогали её свойства.
 
 - `Zoom` отвечает за приближение камеры к её центру
 - `Position Smoothing` включает плавность камеры
-- `Process Callback` изменяет поведение камеры. Чтобы камера не дёргалась в режимие `Position Smoothing` обязательно поставьте его в значение `Physics`
+- `Process Callback` изменяет поведение камеры. Чтобы камера не дёргалась в режиме `Position Smoothing` обязательно поставьте его в значение `Physics`
 
 #### Скрипт игрока
-Прикрепите скрипт к корневому узлу `CharacterBody2D`, который следует переименовать в `Player`. Рекомендуй детям называть узлы осмысленно и с большой буквы, без пробелов. Такой стиль наименования называется [CamelCase](https://ru.wikipedia.org/wiki/CamelCase).
+Прикрепите скрипт к корневому узлу `CharacterBody2D`, который следует переименовать в `Player`. Рекомендуйте называть узлы осмысленно и с большой буквы, без пробелов. Такой стиль наименования называется [CamelCase](https://ru.wikipedia.org/wiki/CamelCase).
 
-Переходим к скрипту, изначально создаем переменную сокрости.
+#### Скорость
 
 ```gdscript
 @export var speed = 100 # экспортируемая переменная, которая добавляется в инспектор узла к которому прикреплен скрипт.
 ```
 ![image](https://github.com/user-attachments/assets/3b5bbbfc-b334-4a87-a84c-3f106c47e7f6 "Как видно на изображении появлятеся новый раздел с названием скрипта в котором объявлена переменная и самой переменной в виде изменяемого свойства.")
 
->[!Tip]
->Сперва можешь задать лишь одно направление или максимум два. 
+#### Движение главного героя
+
+Сперва задаём движение только для одного любого направления:
 
 ```gdscript
-func _physics_process(delta):
-	motion = Vector2() # мы изначально делаем motion равным нулю (допускается вариант Vector2.ZERO)
-	if Input.is_action_pressed("up"): # нажимаем на W
-		motion.y = -speed # уменьшаем Y с значением speed
-
-  	set_velocity(speed) # Это нужно для того чтобы персонаж двигался и скорость не складывалась, если мы идем по диагонали
-	move_and_slide() # Этот метод так же важен для перемещения игрока
-```
-Обязательно дайте возможность детям проявить себя и попробовать написать движение персонажа в другие стороны. Особенно можно похвалить тех, которые написали по-своему. Главнее, чтобы перемещение работало.
-
->Ссылки для подробного изучения работы методов [`set_velocity()`](https://docs.godotengine.org/en/4.3/classes/class_characterbody2d.html) и [`move_and_slide()`](https://docs.godotengine.org/en/4.3/classes/class_characterbody2d.html#class-characterbody2d-method-move-and-slide) 
-
-И теперь задаем само передвижение + анимации
-```gdscript
-func _physics_process(delta):
-	motion = Vector2() # мы изначально делаем motion равным нулю (допускается вариант Vector2.ZERO)
-	if Input.is_action_pressed("up"): # нажимаем на W
-		motion.y = -speed # уменьшаем Y с значением speed
-		$AnimatedSprite2D.play("walk_up") # Анимация вверх
-	if Input.is_action_pressed("right"): 
-		motion.x = speed 
-		$AnimatedSprite2D.flip_h = false # отключаем flip_h при движении вправо
-		if $AnimatedSprite2D.animation == "idle_down": # это нужно, чтобы анимация не ломалась т.к. при движении вправо-влево ->
-			$AnimatedSprite2D.play("walk_down") # ломается анимация и таким образом мы с анимации idle переключаемся на анимацию движения
-
-	if Input.is_action_pressed("left"): # здесь вся та же история, но движение в другую сторону
-		motion.x = -speed
-		$AnimatedSprite2D.flip_h = true
-		if $AnimatedSprite2D.animation == "idle_down":
-			$AnimatedSprite2D.play("walk_down")
-
-	if Input.is_action_pressed("down"):
-		motion.y = speed
-		$AnimatedSprite2D.play("walk_down")
+func _physics_process(delta: float) -> void:
 	
-	if motion == Vector2(): # если движение равно 0 по обоим векторам (можно Vector2.ZERO)
-		$AnimatedSprite2D.play("idle_down") # то включается эта анимация
+	if Input.is_action_pressed("up"):
+		velocity.y = -1
 
-  	set_velocity(motion.normalized() * speed) # Это нужно для того чтобы скорость не складывалась если мы идем по диагонали
+	velocity = velocity * speed # чтобы персонаж не бежал со скоростью -1
 	move_and_slide()
+```
+Попробуйте запустить и проверить работает ли код. Спросить у ребят почему персонаж не двигается персонаж. Вполне вероятно что вы забыли здать клавиши для движения. Исправьте это в разделе `Настройки проекта` в вкладке `список действий`.
+
+После того как персонаж побежал, снова уточните что не так у учеников. Сейчас проблема в том что персонаж движется только в одну сторону. 
+Обязательно дайте возможность детям проявить себя и попробовать написать движение персонажа в другие стороны.
+
+```gdscript
+func _physics_process(delta: float) -> void:
+
+	if Input.is_action_pressed("up"):
+		velocity.y = -1
+	if Input.is_action_pressed("down"):
+		velocity.y = 1
+	if Input.is_action_pressed("right"):
+		velocity.x = 1
+	if Input.is_action_pressed("left"):
+		velocity.x = -1
+
+	velocity = velocity.normalized() * speed # Здесь метод normalized() нужен чтобы при движении по диагонали векторные скорости не складывались. В 2-х словах, значение каждого velocity всегда будет равно либо 0, либо 1/-1.
+	move_and_slide()
+```
+
+>Ссылки для подробного изучения работы метода [`move_and_slide()`](https://docs.godotengine.org/en/4.3/classes/class_characterbody2d.html#class-characterbody2d-method-move-and-slide)
+
+Отлично! Осталась одна проблема - персонаж не останавливается. Сперва спрашиваем ребят, затем объясняем.
+Это происходит потому что мы устанавливаем значение векторной скорости при нажатии клавиши, однако когда кнопку отпускаем, значение обратно не обнуляется. Пофиксить можно буквально одной строкой:
+
+```gdscript
+func _physics_process(delta: float) -> void:
+
+	velocity = Vector2.ZERO # Добавьте эту строку в начало фукнкии
+
+	if Input.is_action_pressed("up"):
+		velocity.y = -1
+	if Input.is_action_pressed("down"):
+		velocity.y = 1
+	if Input.is_action_pressed("right"):
+		velocity.x = 1
+	if Input.is_action_pressed("left"):
+		velocity.x = -1
+
+	velocity = velocity.normalized() * speed
+	move_and_slide()
+```
+
+<details>
+	<summary>Вариант движения персонажа для хардов:</summary>
+	```gdscripts
+	func _physics_process(delta: float) -> void:
+		velocity = Vector2.ZERO 
+	
+		var direction = Input.get_vector("left", "right", "up", "down") # В случае с методом get_vector() значения будут нормализованны автоматически.
+  		
+		velocity = direction * speed
+		move_and_slide()
+	```
+</details>
+
+#### Анимация движения
+
+```gdscript
+
 ```
 >[!TIP]
 >Хорошей практикой считается разделение обработчика анимаций и обработчика физики в разные методы. Анимации - в process(delta), а физику - в physics_process(delta). [Ссылка](https://docs.godotengine.org/en/stable/tutorials/scripting/idle_and_physics_processing.html) на официальную документацию. С хардами можно заморочиться и разделить управление и анимации на различные обработчики.
