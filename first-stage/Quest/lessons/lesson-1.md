@@ -82,7 +82,7 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity * speed # чтобы персонаж не бежал со скоростью -1
 	move_and_slide()
 ```
-Попробуйте запустить и проверить работает ли код. Спросить у ребят почему персонаж не двигается персонаж. Вполне вероятно что вы забыли здать клавиши для движения. Исправьте это в разделе `Настройки проекта` в вкладке `список действий`.
+Попробуйте запустить и проверить работает ли код. Спросите у ребят почему персонаж не двигается. Вполне вероятно, что вы забыли здать клавиши для движения. Исправьте это в разделе `Настройки проекта`, во вкладке `список действий`.
 
 После того как персонаж побежал, снова уточните что не так у учеников. Сейчас проблема в том что персонаж движется только в одну сторону. 
 Обязательно дайте возможность детям проявить себя и попробовать написать движение персонажа в другие стороны.
@@ -126,28 +126,101 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 ```
 
+Последний штрих. Обратите внимание учеников на то, что персонаж не разворачивается, когда мы меняем направление влево\вправо. Давайте это исправим (дайте ученикам возможность подумать самостоятельно):
+```gdscript
+func _physics_process(delta: float) -> void:
+
+	velocity = Vector2.ZERO # Добавьте эту строку в начало фукнкии
+
+	if Input.is_action_pressed("up"):
+		velocity.y = -1
+	if Input.is_action_pressed("down"):
+		velocity.y = 1
+	if Input.is_action_pressed("right"):
+		velocity.x = 1
+		$AnimatedSprite2D.flip_h = false
+	if Input.is_action_pressed("left"):
+		velocity.x = -1
+		$AnimatedSprite2D.flip_h = true
+
+	velocity = velocity.normalized() * speed
+	move_and_slide()
+```
+
 <details>
 	<summary>Вариант движения персонажа для хардов:</summary>
-	```gdscripts
+	```gdscript
+	
 	func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO 
 	
 		var direction = Input.get_vector("left", "right", "up", "down") # В случае с методом get_vector() значения будут нормализованны автоматически.
+
+  		if direction.x > 0:
+			$AnimatedSprite2D.flip_h = false
+		else:
+			$AnimatedSprite2D.flip_h = true
   		
 		velocity = direction * speed
 		move_and_slide()
+  
 	```
 </details>
 
 #### Анимация движения
+Так как у учеников достаточно проектов за плечами, предложите им вынести логику анимцаии в отдельную функцию. Здесь можно рассказать про `Принцип единичной ответсвенности` или `Single responsibility principle`.
 
 ```gdscript
+func animation():
+	if velocity.y > 0:
+		$AnimatedSprite2D.play("w_down")
+	else:
+		$AnimatedSprite2D.play("w_up") 
+```
 
+Вызывать функцию анимации мы будем в функции `_process(delta)`. Она срабатывает с частотой равной частоте обновления вашего экрана и отлично подходит для решения таких задач.
+```gdscript
+func _process(delta: float) -> void:
+	animation()
 ```
 >[!TIP]
->Хорошей практикой считается разделение обработчика анимаций и обработчика физики в разные методы. Анимации - в process(delta), а физику - в physics_process(delta). [Ссылка](https://docs.godotengine.org/en/stable/tutorials/scripting/idle_and_physics_processing.html) на официальную документацию. С хардами можно заморочиться и разделить управление и анимации на различные обработчики.
+>Хорошей практикой считается разделение обработчика анимаций и обработчика физики в разные методы. Анимации - в process(delta), а физику - в physics_process(delta). [Ссылка](https://docs.godotengine.org/en/stable/tutorials/scripting/idle_and_physics_processing.html) на официальную документацию.
 
 >Пример вопроса: Как вы думаете, почему стоит метод обработчика физики добавлять именно в `physics_process(delta)`?  
+
+Если сейчас запустить скрипт, вы с учениками обнаружите, что анимация не работает при передвижении влево\вправо. Давайте модифицируем условие, чтобы это исправить:
+```gdscript
+func animation():
+	if abs(velocity.x) > abs(velocity.y):
+		if velocity.x:
+			$AnimatedSprite2D.play("w_down")
+	else:
+		if velocity.y > 0:
+			$AnimatedSprite2D.play("w_down")
+		else:
+			$AnimatedSprite2D.play("w_up") 
+```
+Проверяем!
+
+>[!NOTE]
+>Метод abs() - возвращает абсолютное значение, объясняя в 2-х словах занчение возвращаемое из этой функции всегда будет положительным.
+
+Теперь выясняется, что если мы перестанем двигаться, анимация движения не сменится снова на `idle`. Давайте исправим и это:
+```gdscript
+func animation():
+	if velocity == Vector2.ZERO:
+		$AnimatedSprite2D.play("idle")
+	else:
+		if abs(velocity.x) > abs(velocity.y):
+			if velocity.x:
+				$AnimatedSprite2D.play("w_down")
+		else:
+			if velocity.y > 0:
+				$AnimatedSprite2D.play("w_down")
+			else:
+				$AnimatedSprite2D.play("w_up") 
+```
+
 
 ## Подробнее про нормализацию вектора
 ### Нормализация вектора движения
@@ -161,13 +234,7 @@ func _physics_process(delta: float) -> void:
 #### Пример
 
 В контексте изометрической игры, где игрок может ходить влево, вправо, вверх и вниз, нормализация вектора движения выглядит следующим образом:
-
-```gdscript
-# motion - это вектор направления, заданный игроком
-# speed - это скорость перемещения персонажа
-set_velocity(motion.normalized() * speed)
-```
-`motion.normalized()` — нормализует вектор направления, чтобы его длина всегда была равна 1.
+`velocity = velocity.normalized() * speed` — нормализует вектор направления, чтобы его длина всегда была равна 1.
 Умножение на `speed` гарантирует, что персонаж будет двигаться с постоянной скоростью независимо от того, движется ли он по диагонали или по одной оси.
 
 Визуально выглядит как-то так: 
@@ -190,13 +257,16 @@ graph TD;
     B --> C[Постоянная скорость];
 ```
 
+# Итоги урока
+- Создали персонажа, логика движения и анимации
+- Занкомство с `принципом единичной ответсвенности`
+- Познакомились с нормализцией векторной скорости.
 
 
-<details>
-	<summary>Сделайте ускорение, если много времени</summary>
-	
-Также можно добавить небольшое ускорение, можно такое как показано ниже
+# Допы
+В случае, если у вас остается много времени или ученикам хочется реализовать что-то другое, то можете дать им следующий материал
 
+Можно добавить небольшое ускорение, пример:
 ```gdscript
 if Input.is_action_pressed("shift"):
 		speed = 300
@@ -204,8 +274,7 @@ if Input.is_action_pressed("shift"):
 		speed = 200
 ```
 
-А можно такой вариант с ограниченным временем действия
-
+Улученный вариант с добавлением выносливости:
 ```gdscript
 	if Input.is_action_pressed("run") and stamina > 5:
 		speed = 80
@@ -224,19 +293,8 @@ if Input.is_action_pressed("shift"):
 	if stamina > max_stamina:
 		stamina = max_stamina
 ```
-</details>
 
 
-
-
-# Итоги урока
-- Создали персонажа, который умеет заходить за здания, где его не будет видно
-- Кто не знал что такое нормализация вектора - узнали, что это
-
-
-# Допы
-
-В случае, если у вас остается много времени или ученикам хочется реализовать что-то другое, то можете дать им следующий материал
 
 
 
