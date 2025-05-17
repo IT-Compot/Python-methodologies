@@ -49,9 +49,9 @@ func _on_quit_dialog_pressed() -> void:
 
 func _process(delta: float) -> void:
 	if in_area:
-		%QuestsGiverWindow.visible = true
+		visible = true
 	else:
-		%QuestsGiverWindow.visible = false
+		visible = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == 'Player':
