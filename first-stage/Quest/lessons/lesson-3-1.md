@@ -33,5 +33,32 @@
 - Выберите в <b>фильтре узлов</b> `Area2d` и в разделе `Узел` прикрепите 2 сигнала `body_entered` и `body_exited` к узлу `QuestGiverWindow`.
 ![signals](https://github.com/user-attachments/assets/8f4b04cd-5175-4df9-bade-a879e5a4e185)
 
-Теперь сам скрипт. Первым делом нам понадобится доступ к игроку. Самый быстрый и эффективный способ будет сохранить игрока как объект в переменную с модификатором `@onrady`. Чтобы быстро создать эту переменную вы можете начать пертаскивать игрока в скрипт, но перед тем как отпусить в нужном месте, зажмите клавишу `ctrl`. Это позволит вам автоматически созданть переменую с нужным модификатором. Пример на гифке ниже:
-![onrady](https://github.com/user-attachments/assets/9b184b69-2fb5-43a1-b646-2837b1a6abf3)
+Остаётся только написать скрипт появления диалогового окна:
+```gdscript
+extends Control
+
+
+var in_area = false
+
+func _on_option_1_pressed() -> void:
+	$Background/QuestText.text = "Отлично! Я хочу попросить тебя найти мой ус креветки! Найди мне его!"
+
+
+func _on_quit_dialog_pressed() -> void:
+	$"../..".in_area = false
+
+func _process(delta: float) -> void:
+	if in_area:
+		%QuestsGiverWindow.visible = true
+	else:
+		%QuestsGiverWindow.visible = false
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == 'Player':
+		in_area = true
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.name == 'Player':
+		in_area = false
+```
