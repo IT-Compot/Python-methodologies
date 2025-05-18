@@ -70,7 +70,7 @@ func _process(delta: float) -> void:
 			$Background/Option_1.text = 'Вот твой ус'
 		G.QUEST_STATE.STAGE_2: # шаблон 3
 			$Background/QuestText.text = "Ты нашёл его! Теперь я смогу отправиться в настоящее приключение! Хочешь со мной?~"
-			$Background/Option_1.text = 'Конечно хочу! Чего мы ждём?
+			$Background/Option_1.text = 'Чего же мы ждём?'
 		G.QUEST_STATE.COMPLETE: # шаблон 4 делайте его с учениками в последнюю очередь
 			$Background/QuestText.text = "Я так рада, что мы идём вместе!~"
 			$Background/Option_1.visible = false
