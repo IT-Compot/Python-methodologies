@@ -12,6 +12,133 @@
 Процесс создания глобального скрипта показан на гифке ниже:
 ![globalgd](https://github.com/user-attachments/assets/eec01926-ae5a-4d47-b212-e5d9557b8281)
 
+#### Создадим нашу "машину состояний":
+```gdsripts
+extends Node
+
+enum QUEST_STATE {
+	NOT_ACTIVE,
+	STAGE_1,
+	STAGE_2,
+	COMPLETE
+}
+
+var current_quest_state = QUEST_STATE.NOT_ACTIVE
+
+func _ready() -> void:
+	# обзательно покажите ученикам какое значение на самом деле хранит переменная в разных состояниях
+	print(current_quest_state)
+```
+
+>[!NOTE]
+>emum (перечисление) - это способ определить набор именованных целочисленных констант. Такой подход облегчае чтение и поддержку кода.
+
+После того как "машина состояний" для квеста у нас есть. Давайте используем её для того чтобы изменять поведение NPC в зависимости от квеста. 
+Тут самое вермя придумать сам квест. У меня это будет банальное принеси-подай.
+>[!TIP]
+>Дайте вашим ученикам возможность самостоятельно придумать квесты для своих игр. Не переживайте, у вас будет возможность помочь каждому реализовать их хотелки, однако следите за тем чтобы ребята не увлекались. Создать изометрический Обливион вряд ли выйдет.
+
+#### Логика квеста
+Мой квестгивер, просит меня принести ключевой предмет `ус креветки` (отсыка к The Legend of Zelda: Breath of the Wild). 
+Давайте перейдём в его скрипт и изменим состояние квеста в случае если игрок нажал на кнопку `принять квест`:
+```gdscripts
+# quests_giver_window.gd
+extends Control
+
+
+var in_area = false
+signal complete # добавить сигнал необходимо только когда сделаете логику подбора предмета
+
+func _on_option_1_pressed() -> void:
+	if G.current_quest_state != G.QUEST_STATE.STAGE_2 and G.current_quest_state != G.QUEST_STATE.COMPLETE: # если вы ещё не нашли предмет
+		G.current_quest_state = G.QUEST_STATE.STAGE_1
+	elif G.current_quest_state == G.QUEST_STATE.STAGE_2: #если вы нашли предмет и вернулись к квестгиверу
+		G.current_quest_state = G.QUEST_STATE.COMPLETE
+		emit_signal("complete")
+
+
+func _on_quit_dialog_pressed() -> void:
+	in_area = false
+
+
+func _process(delta: float) -> void:
+	match G.current_quest_state: # здесь G.current_quest_state - проверяемое выражение
+		G.QUEST_STATE.NOT_ACTIVE: # шаблон 1
+			$Background/QuestText.text = "Привет! Кажется именно тебя я и искала..."
+		G.QUEST_STATE.STAGE_1: # шаблон 2
+			$Background/QuestText.text = "Отлично! Я хочу попросить тебя найти мой ус креветки! Найди мне его!"
+			$Background/Option_1.text = 'Вот твой ус'
+		G.QUEST_STATE.STAGE_2: # шаблон 3
+			$Background/QuestText.text = "Ты нашёл его! Теперь я смогу отправиться в настоящее приключение! Хочешь со мной?~"
+			$Background/Option_1.text = 'Конечно хочу! Чего мы ждём?
+		G.QUEST_STATE.COMPLETE: # шаблон 4 делайте его с учениками в последнюю очередь
+			$Background/QuestText.text = "Я так рада, что мы идём вместе!~"
+			$Background/Option_1.visible = false
+			$Background/QuitDialog.text = "Закрыть"
+	
+	if in_area:
+		visible = true
+	else:
+		visible = false
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == 'Player':
+		in_area = true
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.name == 'Player':
+		in_area = false
+```
+>[!NOTE]
+>match - аналог switch в других языках программирования. Служит для сопоставления значения переменной с различными шаблонами, позволяя элегантно управлять потоком выполнения программы.
+
+Если вы внимательно читаете методику, то на этом этапе вы вохможно заметили, что логика не работает полноценно, т.к. нет события котрое меняло бы состояние на `STAGE_2`. Попробуйте с учениками выполнить условия квеста, чтобы они тоже это заметили на примере.
+
+#### Создание объекта для квеста
+Я сделаю самый простой и утрированный пример с предметом. Однако вы можете усложнять эту механнику в зависимости от уровня вашей группы.
+Создаём предмет:
+![изображение](https://github.com/user-attachments/assets/85152986-e677-4242-bdda-e3337125307f)
+
+Я добавил его прямо на сцену. Он состоит из узлов: `Area2D`, `Sprite`, `CollisionShape2D`
+
+Далее от узла `Area2D` цепляем сигнал `body_entered` к самому же узлу `Area2d` (у меня в примере он назван `PrewnEar`).
+>[!WARNING]
+>Не забудьте предварительно прикрепить новый скрипт к узлу, к котрому хотите присоединить сигнал.
+
+```gdscripts
+# praw_ear.gd
+extends Area2D
+
+
+func _on_body_entered(body: Node2D) -> void:
+	G.current_quest_state = G.QUEST_STATE.STAGE_2
+	self.queue_free()
+```
+#### Конец квеста
+Финальный штрих, сообщение о том что вы успешно справились.
+Первым делом прикрепите к `корневому узлу` вашей главной сцены скрипт. Затем присоедините к нему сигнал `complite` от узла `QuestsGiverWindow`
+![newsignal](https://github.com/user-attachments/assets/83bec556-7e4f-4383-80ff-db9ca9737b08)
+
+Далее создайте узел `CanvasLayer` и переименуйт его в `UI` -> затем прикрепите к нему узел `Lable` - он будет показывать финальное сообщение, я назвал его `Notifications`.
+В функцию от сигнала, в скрипте `корневого узла` пропишите:
+```gdscripts
+#game.gd
+extends Node2D
+
+
+func _on_quests_giver_window_complete() -> void:
+	$UI/Notifications.text = "Вы отправляетесь в захватывающее приключение вместе с Сиа!"
+	$UI/Notifications.visible = true
+
+```
+>[!WARNING]
+>На этом этапе, основная часть проекта готова, дальше вы с учениками делаете их хотелки, фиксите баги, дорабатываете логику, прописываете допы и т.д.
+
+Итоги урока:
+- Познакомились с enum и match
+- Реализовали "машину состояний" для квеста
 
 ## Допы
 
@@ -164,6 +291,4 @@
 
 
 # Итоги
-
-- Ученики создали бота, который будет выдавать квесты
 - Если не были знакомы, то познакомились с партиклами, поработали с ними и сделали классный эффект для персонажа с квестом
