@@ -18,8 +18,8 @@
 ## Список уроков:
 - Урок 1 - [Игрок](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-1.md)
 - Урок 2 - [Карта](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-2.md)
-- Урок 3 - [Боты](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-3.md)
-- Урок 4 - [Квесты](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-4.md)
-- Урок 5 - [Интерфейс квестов](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-5.md)
-- Урок 6 - [Время](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-6.md)
-- [Допы](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/additional.md)
+- Урок 3 - [Квестгивер](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-3.md)
+- Урок 4 - [Логика квестов](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-4.md)
+- Урок 5 - [Блуждающий npc (доп к оснвоной логике игры)](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-5.md)
+- Урок 6 - [Время (доп к оснвоной логике игры)](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/Quest/lessons/lesson-6.md)
+
