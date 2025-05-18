@@ -2,6 +2,8 @@
 
 ![DemoGamePlay_3](https://github.com/user-attachments/assets/638da84d-067d-4f3c-a0ed-d21bba345926)
 
+## Файлы
+### [пример игры](https://disk.yandex.ru/d/FvcsbQTvZ1ruvw) | [ассеты](https://disk.yandex.ru/d/f9xDECy6m4rrxA)
 
 ## Цель проекта
 Проект, направлен на отработку тем, изученных на предыдущих уроках. В ходе создания игры ученики закрепят темы по циклам, спискам, а также научаться создавать объекты в сцене.
