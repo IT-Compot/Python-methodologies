@@ -13,7 +13,7 @@
 ![globalgd](https://github.com/user-attachments/assets/eec01926-ae5a-4d47-b212-e5d9557b8281)
 
 #### Создадим нашу "машину состояний":
-```gdsript
+```gdscript
 extends Node
 
 enum QUEST_STATE {
