@@ -41,7 +41,7 @@ func _ready() -> void:
 #### Логика квеста
 Мой квестгивер, просит меня принести ключевой предмет `ус креветки` (отсыка к The Legend of Zelda: Breath of the Wild). 
 Давайте перейдём в его скрипт и изменим состояние квеста в случае если игрок нажал на кнопку `принять квест`:
-```gdscripts
+```gdscript
 # quests_giver_window.gd
 extends Control
 
@@ -107,8 +107,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 >[!WARNING]
 >Не забудьте предварительно прикрепить новый скрипт к узлу, к котрому хотите присоединить сигнал.
 
-```gdscripts
-# praw_ear.gd
+```gdscript
+# prawn_ear.gd
 extends Area2D
 
 
@@ -123,7 +123,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 Далее создайте узел `CanvasLayer` и переименуйт его в `UI` -> затем прикрепите к нему узел `Lable` - он будет показывать финальное сообщение, я назвал его `Notifications`.
 В функцию от сигнала, в скрипте `корневого узла` пропишите:
-```gdscripts
+```gdscript
 #game.gd
 extends Node2D
 
