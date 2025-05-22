@@ -39,7 +39,7 @@ text = model("Фильм очень понравился, хороший сюж�
 text_list = [i for i in text]
 print(text_list)
 
-filter_text_list = [i for i in text_list if not i in STOP_WORDS]
+filter_text_list = [i for i in text_list if not str(i) in STOP_WORDS]
 
 lemma_text = [i.lemma_ for i in text] #*
 print(lemma_text) #*
@@ -61,7 +61,7 @@ text = model("Фильм очень понравился, хороший сюж�
 
 lemma_text = [i.lemma_ for i in text] #*
 
-filter_text_list = [i for i in lemma_text if not i in STOP_WORDS] #*
+filter_text_list = [i for i in lemma_text if not str(i) in STOP_WORDS] #*
 print(filter_text_list)
 ```
 
@@ -94,7 +94,7 @@ model = ru_core_news_md.load()
 text = model("Фильм очень понравился, хороший сюжет, классные актеры, но концовка чуть испортила впечатление, а так твёрдая 8")
 
 lemma_text = [i.lemma_ for i in text]
-filter_text_list = [i for i in lemma_text if not i in STOP_WORDS]
+filter_text_list = [i for i in lemma_text if not str(i) in STOP_WORDS]
 
 analysis = TextBlob(str(filter_text_list)) #*
 sentiment = analysis.sentiment.polarity #*
@@ -128,7 +128,7 @@ model = ru_core_news_md.load()
 text = model("Фильм очень понравился, хороший сюжет, классные актеры, но концовка чуть испортила впечатление, а так твёрдая 8")
 
 lemma_text = [i.lemma_ for i in text]
-filter_text_list = [i for i in lemma_text if not i in STOP_WORDS]
+filter_text_list = [i for i in lemma_text if not str(i) in STOP_WORDS]
 
 translator = Translator(from_lang="Russian", to_lang="English") #*
 translated_text = translator.translate(str(filter_text_list)) #*
@@ -184,7 +184,7 @@ model = ru_core_news_md.load() # Загрузка предобученной м�
 text = model("Фильм очень понравился, хороший сюжет, классные актеры, но концовка чуть испортила впечатление, а так твёрдая 8")  # Создание объекта Doc из входного текста с использованием модели spacy
 
 lemma_text = [i.lemma_ for i in text]  # Лемматизация текста: извлечение лемм для каждого токена (слова) в тексте
-filter_text_list = [i for i in lemma_text if not i in STOP_WORDS]  # Удаление стоп-слов из лемматизированного текста: создание списка слов, которые не являются стоп-словами
+filter_text_list = [i for i in lemma_text if not str(i) in STOP_WORDS]  # Удаление стоп-слов из лемматизированного текста: создание списка слов, которые не являются стоп-словами
 
 translator = Translator(from_lang="Russian", to_lang="English")  # Создание объекта Translator для перевода с русского на английский
 translated_text = translator.translate(str(filter_text_list))  # Перевод очищенного текста на английский
