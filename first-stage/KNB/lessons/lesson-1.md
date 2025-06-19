@@ -1,6 +1,6 @@
 # КНБ
 
-![hippo](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/KNB/Assets/KNB.gif)
+
 
 ## Краткое содержание
 - Создаем интерфейс игры
