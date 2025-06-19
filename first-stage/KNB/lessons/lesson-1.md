@@ -76,8 +76,78 @@ func _on_button_scissors_pressed():
 	pass
 ```
 
-Теперь создаем переменную, которая будет хранить значения выбранные игроком
+Теперь создаем переменные, одна из которых будет хранить значения выбранные игроком, а вторая является ссылкой на узел с анимацией игрока
 
 ```gdscript
 var player := "" # значения:  "paper", "rock", "scissors"
+@onready var player_animation = $PlayerAnimation
 ```
+
+И переписываем скрипт:
+
+```gdscript
+func _on_button_paper_pressed():
+	player = "paper" # меняем значение на бумагу
+	player_animation.play("paper_animation") # меняем анимацию
+
+
+func _on_button_rock_pressed():
+	player = "rock" # камень
+	player_animation.play("rock_animation")
+
+
+
+func _on_button_scissors_pressed():
+	player = "scissors" # ножницы
+	player_animation.play("scissors_animation")
+
+```
+
+### Код бота
+
+Здесь код можете переписывать сверху вниз
+
+```gdscript
+func bot_choice():
+	var number = 0 # переменная с номером
+	number = randi() % 3 # генерация случайного числа от 0 до 2
+	print(number)
+
+	# логика выбора на основе случайного числа:
+	if number == 0:
+		bot = "paper" # запись выбора в переменную
+		bot_animation.play("paper_animation") # проигрывание анимации
+	if number == 1:
+		bot = "rock"
+		bot_animation.play("rock_animation")
+	if number == 2:
+		bot_animation.play("scissors_animation")
+		bot = "scissors"
+```
+
+<details>
+	<summary>Про randomize() </summary>
+	
+### Уточнение о работе `randomize()` в `Godot`
+
+#### Фактическое поведение в современных версиях `Godot (4.0+)`
+
+1. **Автоматическая инициализация**:
+   - Начиная с `Godot 4.0`, движок **автоматически вызывает `randomize()`** при запуске проекта
+   - Это было сделано для упрощения разработки
+
+2. **Почему ваш код работает без `randomize`**:
+   - Даже без явного вызова `randomize()` вы получаете разные последовательности
+   - `Godot` сам устанавливает `seed` на основе системного времени
+
+3. **Остающиеся рекомендации**:
+
+```gdscript
+# Лучшая практика (для совместимости и явного контроля)
+func _ready():
+    randomize()  # Явная инициализация
+```
+
+>[!Tip]
+>Можете дополнительно рассказать про это ученикам и явно указать `randomzie()` в коде
+</details>
