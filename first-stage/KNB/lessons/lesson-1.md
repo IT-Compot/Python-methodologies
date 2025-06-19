@@ -57,3 +57,21 @@ Game (Node2D)
 Должно получиться что-то похожее на это:
 
 ![image](https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/KNB/Assets/game_screen.png)
+
+
+## Код
+
+Прикрепляем скрипт к корневому узлу. Добавляем сигналы `pressed` от кнопок к скрипту и получаем следующий код:
+
+```gdscript
+func _on_button_paper_pressed():
+	pass
+
+
+func _on_button_rock_pressed():
+	pass
+
+
+func _on_button_scissors_pressed():
+	pass
+```
