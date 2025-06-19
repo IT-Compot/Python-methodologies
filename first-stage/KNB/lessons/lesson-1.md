@@ -75,3 +75,9 @@ func _on_button_rock_pressed():
 func _on_button_scissors_pressed():
 	pass
 ```
+
+Теперь создаем переменную, которая будет хранить значения выбранные игроком
+
+```gdscript
+var player := "" # значения:  "paper", "rock", "scissors"
+```
