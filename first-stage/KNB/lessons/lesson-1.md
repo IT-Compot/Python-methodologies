@@ -214,3 +214,6 @@ func _on_button_scissors_pressed():
 	player_animation.play("scissors_animation")
 	bot_choice()
 ```
+
+# Итоги
+
