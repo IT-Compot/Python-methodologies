@@ -7,6 +7,15 @@
 - Вывод результата
 
 
+## Доработка интерфейса
+
+Добавляем узел `Label` переименуем его в `ScoreLabel` и выставим его куда удобно. Должно получиться что-то вроде этого:
+
+<img src='https://github.com/IT-Compot/Python-methodologies/blob/main/first-stage/KNB/Assets/label_screehshot.png'>
+
+>[!Note]
+>Чтобы выставить так ровно посередине - растяни лейбл на весь экран и в параметрах `HorizontalAlignment` и `VerticalAlignment` ставим значение `Center`
+
 ## Код проверки
 
 Сперва можете ознакомиться с полным кодом
