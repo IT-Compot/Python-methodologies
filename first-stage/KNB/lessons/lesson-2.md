@@ -18,7 +18,27 @@
 
 ## Код проверки
 
-Сперва можете ознакомиться с полным кодом
+Сперва обновим список переменных:
+
+```gdscript
+@onready var player_animation = $PlayerAnimation
+@onready var bot_animation = $BotAnimation
+@onready var score_label = $ScoreLabel # добавляем лэйбл
+@onready var button_paper = $ButtonPaper # кнопка бумаги
+@onready var button_rock = $ButtonRock # кнопка камня
+@onready var button_scissors = $ButtonScissors # кнопка ножниц
+
+
+var player := ""
+var bot := ""
+
+var player_score : int # счет игрока
+var bot_score : int # счет бота
+var count_max : int = 5 # максимальный счет
+```
+
+
+Теперь можете ознакомиться с полным кодом этого урока
 
 ```gdscript
 # Функция проверки победителя в игре "Камень-Ножницы-Бумага"
