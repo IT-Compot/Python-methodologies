@@ -29,3 +29,34 @@
 и получается это:
 
 <img width="211" height="274" alt="image" src="https://github.com/user-attachments/assets/6e574c81-a855-45dd-ba85-0cd3f87d3261" />
+
+В каждую из анимаций добавляем кадры анимаций из спрайт-листа, который лежит у учеников в файловой системе. Чтобы добавить кадры надо нажать на эту кнопку:
+
+<img width="617" height="72" alt="image" src="https://github.com/user-attachments/assets/2205a82f-8326-41d7-9280-d348abfaa6a5" />
+
+Далее выбираем понравившийся ассет и открываем его. Будет что-то на подобии этого:
+
+<img width="1241" height="733" alt="image" src="https://github.com/user-attachments/assets/424b7d39-60dc-4f13-bb42-f5df8e9e56f0" />
+
+В зависимости от выбранного ассета (если вы используете другие) нужно настроить сетку. В одной клетке - один кадр анимации. Вот пример ниже:
+
+<img width="1238" height="729" alt="image" src="https://github.com/user-attachments/assets/bd398b86-acae-45f7-b564-e226936fe66c" />
+
+Теперь в зависимости от анимации, которую вы настраиваете - выбираем необходимые кадры.
+
+`idle`: 
+
+<img width="658" height="328" alt="image" src="https://github.com/user-attachments/assets/40bebb9d-112c-4f39-9951-4e10c90a54b0" />
+
+`jump`:
+
+<img width="638" height="315" alt="image" src="https://github.com/user-attachments/assets/4cde049f-00a2-4785-9a11-e1ac5267dec9" />
+
+`run`:
+
+<img width="727" height="297" alt="image" src="https://github.com/user-attachments/assets/2c8c8b3b-fc9f-483a-a5a9-252cf09b598f" />
+
+>[!Warning]
+>Все сильно зависит от ваших ассетов, будьте внимательны! Если вы выбрали предоставленные, то достаточно делать по инструкции.
+
+
