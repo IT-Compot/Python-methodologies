@@ -13,6 +13,12 @@
 
 <img width="200" height="138" alt="image" src="https://github.com/user-attachments/assets/e7f6d183-0eae-41b6-890f-2fbcf6d75c72" />
 
+Сохраняем сцену
 
 ### Работа с узлами
 
+В `AnimatedSprite2D` в `Инспекторе` открываем вкладу `Animation` и в параметре `Sprite Frames` нажимаем на: `Новый SpriteFrames`, таким образом мы создали новый ресурс. Открываем его, нажатием на созданный `SpriteFrames`.
+Теперь создаем три базовые анимации для нашего игрока: 
+- `idle` - стоять
+- `walk` - идти
+- `jump` - прыгать
