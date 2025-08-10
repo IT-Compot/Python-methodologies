@@ -20,5 +20,12 @@
 В `AnimatedSprite2D` в `Инспекторе` открываем вкладу `Animation` и в параметре `Sprite Frames` нажимаем на: `Новый SpriteFrames`, таким образом мы создали новый ресурс. Открываем его, нажатием на созданный `SpriteFrames`.
 Теперь создаем три базовые анимации для нашего игрока: 
 - `idle` - стоять
-- `walk` - идти
+- `run` - бежать
 - `jump` - прыгать
+
+Создается новая анимация следующим образом: 
+<img width="1488" height="271" alt="image" src="https://github.com/user-attachments/assets/e83e6213-f0c7-4fec-9e42-9c069b4b3446" />
+
+и получается это:
+
+<img width="211" height="274" alt="image" src="https://github.com/user-attachments/assets/6e574c81-a855-45dd-ba85-0cd3f87d3261" />
