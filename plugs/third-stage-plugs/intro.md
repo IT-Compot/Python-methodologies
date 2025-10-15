@@ -1,2 +1,2 @@
-## [Если группа EASY](https://github.com/IT-Compot/Python-methodologies/blob/main/plugs/third-stage-plugs/telebot-generate-password/telebot-generate-password-easy.py)
-## [Если группа HARD](https://github.com/IT-Compot/Python-methodologies/blob/main/plugs/third-stage-plugs/telebot-generate-password/telebot-generate-password.py)
+## Если группа EASY [код](https://github.com/IT-Compot/Python-methodologies/blob/main/plugs/third-stage-plugs/telebot-generate-password/telebot-generate-password-easy.py) | [видео 1](https://disk.yandex.ru/i/jcYG_dyt7JrKGw), [видео 2](https://disk.yandex.ru/i/3BzOmL8X8Fz9-A)
+## Если группа HARD [код](https://github.com/IT-Compot/Python-methodologies/blob/main/plugs/third-stage-plugs/telebot-generate-password/telebot-generate-password.py)
