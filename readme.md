@@ -25,4 +25,4 @@
 
 <img src="https://github.com/IT-Compot/Python-methodologies/blob/main/images/3.gif" width="50%">
 
-## [Заглушки]()
+## [Заглушки](https://github.com/IT-Compot/Python-methodologies/blob/main/plugs/plugs.md)
